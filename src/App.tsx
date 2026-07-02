@@ -160,6 +160,11 @@ const Navbar = () => {
               href="https://wa.me/5551991308627" 
               target="_blank" 
               rel="noreferrer"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
+                }
+              }}
               className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent transition-all shadow-md shadow-primary/20"
             >
               <MessageCircle size={18} />
@@ -195,6 +200,11 @@ const Navbar = () => {
                 href="https://wa.me/5551991308627" 
                 target="_blank" 
                 rel="noreferrer"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
+                  }
+                }}
                 className="mt-4 flex items-center justify-center gap-2 bg-blue-600 text-white px-5 py-4 rounded-lg text-base font-semibold"
               >
                 <MessageCircle size={20} />
@@ -533,6 +543,13 @@ ${formData.message}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5551991308627?text=${encodedMessage}`;
     
+    // Dispara o evento de conversão do Google Ads
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD'
+      });
+    }
+    
     window.open(whatsappUrl, '_blank');
     setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', city: '', message: '' });
@@ -809,6 +826,11 @@ export default function App() {
           href="https://wa.me/5551991308627" 
           target="_blank" 
           rel="noreferrer"
+          onClick={() => {
+            if (typeof window !== 'undefined' && (window as any).gtag) {
+              (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
+            }
+          }}
           className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:bg-green-600 group"
           aria-label="Chat on WhatsApp"
         >
