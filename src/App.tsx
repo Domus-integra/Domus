@@ -115,7 +115,7 @@ const testimonials: Testimonial[] = [
     role: 'Arquiteto',
     content: 'O sistema de automação superou todas as minhas expectativas. A integração é perfeita e o suporte técnico é exemplar. Meus clientes adoram o diferencial.',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=150&h=150&auto=format&fit=crop'
+    image: '/Ricardo-Oliveira.jpg'
   },
   {
     id: 2,
@@ -123,7 +123,7 @@ const testimonials: Testimonial[] = [
     role: 'Empresária',
     content: 'Poder controlar a iluminação e segurança da minha casa pelo celular me trouxe uma paz de espírito incrível. Recomendo para todos que buscam conforto.',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=150&h=150&auto=format&fit=crop'
+    image: '/Clara-Mendes.jpg'
   },
   {
     id: 3,
@@ -131,7 +131,7 @@ const testimonials: Testimonial[] = [
     role: 'Sommelier',
     content: 'O projeto de áudio multiroom na minha adega e área gourmet ficou impecável. A qualidade do som é de outro nível. Trabalho profissional!',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=150&h=150&auto=format&fit=crop'
+    image: '/Mauricio-Silva.jpg'
   }
 ];
 
