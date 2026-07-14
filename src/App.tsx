@@ -338,9 +338,9 @@ const Hero = () => {
               <div className="absolute -top-6 -right-6 bg-surface p-6 rounded-2xl shadow-xl z-20 hidden md:block max-w-[200px] border border-white/10">
                  <div className="flex items-center gap-3 mb-2">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3].map(i => (
-                      <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-white/20 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="user" className="w-full h-full object-cover" />
+                    {testimonials.map((t, index) => (
+                      <div key={index} className="w-6 h-6 rounded-full border-2 border-surface bg-white/20 overflow-hidden">
+                        <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
                       </div>
                     ))}
                   </div>
