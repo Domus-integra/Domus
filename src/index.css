@@ -7,7 +7,9 @@
   --font-brand: "Gogh", sans-serif;
   --color-primary: #000742;
   --color-accent: #081588;
-  --color-app-bg: #eeeeee;
+  --color-app-bg: #000214;
+  --color-surface: #000524;
+  --color-surface-light: #000836;
 }
 
 @layer base {
@@ -16,7 +18,7 @@
   }
   
   body {
-    @apply font-sans bg-app-bg text-slate-900;
+    @apply font-sans bg-app-bg text-slate-300;
   }
   
   h1, h2, h3, h4, h5, h6 {
