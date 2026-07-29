@@ -303,11 +303,11 @@ const Hero = () => {
                     {/* Images */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                        <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
-                          <img src="/Central1.jpg" alt="Central" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <img src="/Central1.jpg" alt="Central" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
                        </div>
                        <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
-                          <img src="/Caixa1.jpg" alt="Quadro" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <img src="/Caixa1.jpg" alt="Quadro" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
                        </div>
                     </div>
