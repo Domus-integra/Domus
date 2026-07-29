@@ -13,6 +13,7 @@ import {
   Smartphone, 
   Thermometer, 
   Menu, 
+  Award,
   X, 
   ArrowRight, 
   MessageCircle, 
@@ -276,82 +277,79 @@ const Hero = () => {
           
           <div className="w-full lg:w-1/2">
             <motion.div 
-              className="relative"
+              className="relative w-full max-w-lg mx-auto lg:mr-0"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 border-4 border-white">
-                <img 
-                  src="/Automacao-app.jpg" 
-                  alt="Modern Automation" 
-                  onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop"; }}
-                  className="w-full h-[400px] lg:h-[600px] object-cover bg-surface-light"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-              </div>
-              
-              <div className="absolute -bottom-12 -left-2 sm:-bottom-10 sm:-left-10 bg-surface p-2 sm:p-2.5 rounded-xl sm:rounded-2xl shadow-2xl z-20 border border-white/10">
-                <div className="flex gap-2 sm:gap-3">
-                  {[
-                    'https://www.youtube.com/embed/mVCsF-H9ViM',
-                    // Adicione mais vídeos no futuro descomentando ou adicionando linhas abaixo:
-                    // 'https://www.youtube.com/embed/OUTRO_VIDEO',
-                  ].map((videoSrc, index) => (
-                    <div 
-                      key={index} 
-                      className="relative w-[120px] h-[213px] sm:w-[150px] sm:h-[266px] rounded-xl overflow-hidden bg-surface-light group shadow-inner cursor-pointer"
-                      onClick={() => setActiveVideo(videoSrc)}
-                    >
-                      <iframe 
-                        src={videoSrc} 
-                        title="YouTube video player" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerPolicy="strict-origin-when-cross-origin" 
-                        allowFullScreen
-                        className="w-full h-full pointer-events-none"
-                      ></iframe>
-                      {/* Gradient for text */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 pointer-events-none" />
-                      
-                      {/* Play overlay button on thumbnail */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
-                         <div className="w-12 h-12 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50">
-                           <Play size={20} className="fill-white text-white ml-1" />
-                         </div>
-                      </div>
-
-                      {/* Rating label */}
-                      <div className="absolute bottom-3 left-3 right-3 text-white pointer-events-none">
-                        <div className="text-[10px] font-bold uppercase tracking-wider mb-0.5">Cliente</div>
-                        <div className="flex">
-                          {[1,2,3,4,5].map(i => <Star key={i} size={10} className="fill-yellow-400 text-yellow-400" />)}
-                        </div>
-                      </div>
+              <div className="flex flex-col gap-4 sm:gap-6 mt-8 lg:mt-0 relative z-20">
+                 {/* Sponsorships & Projects Section */}
+                 <div className="bg-surface/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-xl border border-white/10 flex flex-col gap-4 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-accent to-purple-500" />
+                    
+                    {/* Headers */}
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                       <div>
+                          <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Patrocinador Oficial</div>
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                             <h3 className="text-xl sm:text-2xl font-black italic tracking-tighter text-white">CASACOR 2026</h3>
+                             <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/20" />
+                             <h3 className="text-xl sm:text-2xl font-black italic tracking-tighter text-white">MOSTRAGLASS 2026</h3>
+                          </div>
+                       </div>
+                       <Award className="text-yellow-400 w-8 h-8 sm:w-10 sm:h-10 shrink-0 drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]" />
                     </div>
-                  ))}
-                </div>
+
+                    {/* Images */}
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                       <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
+                          <img src="/Central1.jpg" alt="Central" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                       </div>
+                       <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
+                          <img src="/Caixa1.jpg" alt="Quadro" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Testimonial Section */}
+                 <div 
+                    className="bg-gradient-to-r from-surface to-surface-light p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 flex items-center gap-4 cursor-pointer hover:border-white/20 transition-all group"
+                    onClick={() => setActiveVideo('https://www.youtube.com/embed/mVCsF-H9ViM')}
+                 >
+                    <div className="relative w-[70px] h-[124px] sm:w-[90px] sm:h-[160px] rounded-xl overflow-hidden shrink-0 bg-black shadow-inner">
+                       <iframe src="https://www.youtube.com/embed/mVCsF-H9ViM" className="w-full h-full pointer-events-none" tabIndex={-1} />
+                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                          <div className="w-10 h-10 rounded-full bg-accent/80 backdrop-blur-sm flex items-center justify-center shadow-[0_0_15px_rgba(225,29,72,0.5)]">
+                             <Play size={18} className="text-white fill-white ml-0.5" />
+                          </div>
+                       </div>
+                    </div>
+                    
+                    <div className="flex-1">
+                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 mb-2 sm:mb-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                          <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Depoimento</span>
+                       </div>
+                       
+                       <h4 className="text-lg sm:text-xl font-bold text-white mb-1">Tinta La Vida POA</h4>
+                       
+                       <div className="flex items-center gap-2 text-yellow-400 mb-2">
+                          <div className="flex">
+                             {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-current" />)}
+                          </div>
+                          <span className="text-xs text-slate-400 font-medium">5.0</span>
+                       </div>
+                       
+                       <p className="text-xs sm:text-sm text-slate-400 line-clamp-2 leading-relaxed">
+                          "Projeto completo com som ambiente, televisores, câmeras de segurança e sistema de alarme integrado."
+                       </p>
+                    </div>
+                 </div>
               </div>
 
-              <div className="absolute -top-6 -right-6 bg-surface p-6 rounded-2xl shadow-xl z-20 hidden md:block max-w-[200px] border border-white/10">
-                 <div className="flex items-center gap-3 mb-2">
-                  <div className="flex -space-x-2">
-                    {testimonials.map((t, index) => (
-                      <div key={index} className="w-6 h-6 rounded-full border-2 border-surface bg-white/20 overflow-hidden">
-                        <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex">
-                    {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-yellow-400 text-yellow-400" />)}
-                  </div>
-                </div>
-                <p className="text-[10px] font-bold text-white uppercase tracking-tighter">Avaliado por nossos clientes</p>
-              </div>
-
-              <div className="absolute inset-0 bg-blue-500/20/30 rounded-3xl -translate-x-4 translate-y-4 -z-10" />
+              <div className="absolute inset-0 bg-blue-500/20/30 rounded-[40px] -translate-x-4 translate-y-4 -z-10 blur-xl" />
             </motion.div>
           </div>
         </div>
