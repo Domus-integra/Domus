@@ -274,6 +274,7 @@ const Hero = () => {
             </motion.div>
           </div>
           
+          <div className="w-full lg:w-1/2">
             <motion.div 
               className="relative w-full max-w-lg mx-auto lg:mr-0 gpu-layer"
               initial={{ opacity: 0, scale: 0.95 }}
