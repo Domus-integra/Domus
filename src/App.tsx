@@ -21,7 +21,6 @@ import {
   CheckCircle2, 
   Clock, 
   Users, 
-  Award,
   Instagram,
   Linkedin,
   Facebook,
@@ -275,16 +274,15 @@ const Hero = () => {
             </motion.div>
           </div>
           
-          <div className="w-full lg:w-1/2">
             <motion.div 
-              className="relative w-full max-w-lg mx-auto lg:mr-0"
-              initial={{ opacity: 0, scale: 0.9 }}
+              className="relative w-full max-w-lg mx-auto lg:mr-0 gpu-layer"
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             >
               <div className="flex flex-col gap-4 sm:gap-6 mt-8 lg:mt-0 relative z-20">
                  {/* Sponsorships & Projects Section */}
-                 <div className="bg-surface/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-xl border border-white/10 flex flex-col gap-4 relative overflow-hidden">
+                 <div className="bg-surface/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-xl border border-white/10 flex flex-col gap-4 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-accent to-purple-500" />
                     
                     {/* Headers */}
@@ -303,25 +301,31 @@ const Hero = () => {
                     {/* Images */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                        <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
-                          <img src="/Central1.jpg?v=2" alt="Central" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <img src="/Central1.jpg?v=2" alt="Central" loading="eager" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                        </div>
                        <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
-                          <img src="/Caixa1.jpg?v=2" alt="Quadro" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <img src="/Caixa1.jpg?v=2" alt="Quadro" loading="eager" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                        </div>
                     </div>
                  </div>
 
                  {/* Testimonial Section */}
                  <div 
-                    className="bg-gradient-to-r from-surface to-surface-light p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 flex items-center gap-4 cursor-pointer hover:border-white/20 transition-all group"
+                    className="bg-gradient-to-r from-surface to-surface-light p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 flex items-center gap-4 cursor-pointer hover:border-white/30 transition-all group"
                     onClick={() => setActiveVideo('https://www.youtube.com/embed/mVCsF-H9ViM')}
                  >
-                    <div className="relative w-[70px] h-[124px] sm:w-[90px] sm:h-[160px] rounded-xl overflow-hidden shrink-0 bg-black shadow-inner">
-                       <iframe src="https://www.youtube.com/embed/mVCsF-H9ViM" className="w-full h-full pointer-events-none" tabIndex={-1} />
+                    <div className="relative w-[70px] h-[124px] sm:w-[90px] sm:h-[160px] rounded-xl overflow-hidden shrink-0 bg-slate-900 shadow-inner">
+                       <img 
+                          src="https://img.youtube.com/vi/mVCsF-H9ViM/hqdefault.jpg" 
+                          alt="Depoimento Vídeo Tinta La Vida" 
+                          loading="eager"
+                          decoding="async"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                       />
                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-                          <div className="w-10 h-10 rounded-full bg-accent/80 backdrop-blur-sm flex items-center justify-center shadow-[0_0_15px_rgba(225,29,72,0.5)]">
+                          <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shadow-[0_0_15px_rgba(8,21,136,0.6)] group-hover:scale-110 transition-transform">
                              <Play size={18} className="text-white fill-white ml-0.5" />
                           </div>
                        </div>
@@ -349,7 +353,7 @@ const Hero = () => {
                  </div>
               </div>
 
-              <div className="absolute inset-0 bg-blue-500/20/30 rounded-[40px] -translate-x-4 translate-y-4 -z-10 blur-xl" />
+              <div className="absolute inset-0 bg-blue-600/15 rounded-[40px] -translate-x-4 translate-y-4 -z-10 blur-xl pointer-events-none" />
             </motion.div>
           </div>
         </div>
@@ -397,12 +401,13 @@ const Hero = () => {
 
 const ServiceSection = () => {
   return (
-    <section id="services" className="py-24 bg-surface scroll-mt-20">
+    <section id="services" className="py-24 bg-surface scroll-mt-20 perf-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">O Que Fazemos</h2>
@@ -416,10 +421,10 @@ const ServiceSection = () => {
           {services.map((service, index) => (
              <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.35, delay: Math.min(index * 0.05, 0.3) }}
               className={`group bg-surface rounded-3xl overflow-hidden border transition-all duration-300 relative ${
                 index === 0 
                   ? 'border-accent shadow-2xl shadow-accent/20 md:col-span-2 lg:col-span-3 lg:flex' 
@@ -436,10 +441,12 @@ const ServiceSection = () => {
                 <img 
                   src={service.imageUrl} 
                   alt={service.title} 
-                  className="w-full h-full object-cover scale-[1.01] group-hover:scale-110 transition-transform duration-500 will-change-transform [backface-visibility:hidden] [transform:translateZ(0)]"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform [backface-visibility:hidden] [transform:translateZ(0)]"
                   referrerPolicy="no-referrer"
                 />
-                <div className={`absolute top-4 left-4 p-3 bg-surface rounded-2xl shadow-lg ${index === 0 && 'z-10'}`}>
+                <div className={`absolute top-4 left-4 p-3 bg-surface/90 backdrop-blur-sm rounded-2xl shadow-lg ${index === 0 && 'z-10'}`}>
                   <div className="text-blue-400">
                     {service.icon}
                   </div>
@@ -472,23 +479,26 @@ const ServiceSection = () => {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 bg-surface-light overflow-hidden scroll-mt-20">
+    <section id="about" className="py-24 bg-surface-light overflow-hidden scroll-mt-20 perf-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="w-full lg:w-1/2 relative">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4 }}
               className="relative rounded-[40px] overflow-hidden shadow-2xl z-10 border-8 border-white"
             >
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
                 alt="Escritório Domus Integra" 
-                className="w-full h-[500px] object-cover"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[450px] object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent pointer-events-none" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl">
@@ -501,15 +511,15 @@ const AboutSection = () => {
                 </div>
               </div>
             </motion.div>
-            <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+            <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-2xl pointer-events-none" />
           </div>
 
           <div className="w-full lg:w-1/2">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Sobre Nós</h2>
               <h3 className="text-4xl font-bold text-white mb-8 tracking-tight">Uma jornada de inovação e praticidade</h3>
@@ -552,14 +562,15 @@ const AboutSection = () => {
 
 const WarrantySection = () => {
   return (
-    <section className="py-24 bg-surface relative overflow-hidden">
+    <section className="py-24 bg-surface relative overflow-hidden perf-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="w-full lg:w-1/2">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4 }}
             >
               <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Garantia e Pós-Venda</h2>
               <h3 className="text-4xl font-bold text-white mb-6 tracking-tight">Nosso compromisso não termina na entrega.</h3>
@@ -603,26 +614,29 @@ const WarrantySection = () => {
 
           <div className="w-full lg:w-1/2">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4 }}
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 border-8 border-white/10">
                 <img 
                   src="/carroeferramenta.jpg" 
                   alt="Suporte Técnico Domus Integra" 
-                  className="w-full h-[500px] object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-[450px] object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-8 left-8 right-8 text-white">
                   <div className="text-3xl font-bold mb-2">100% de Suporte</div>
                   <p className="text-white/80 font-medium">Você sempre no controle, nós sempre à disposição.</p>
                 </div>
               </div>
-              <div className="absolute top-10 -right-10 w-48 h-48 bg-blue-500/20 rounded-full  filter blur-2xl opacity-70 animate-blob" />
-              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/20 rounded-full  filter blur-2xl opacity-70 animate-blob animation-delay-2000" />
+              <div className="absolute top-10 -right-10 w-48 h-48 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/15 rounded-full blur-2xl pointer-events-none" />
             </motion.div>
           </div>
         </div>
@@ -633,12 +647,13 @@ const WarrantySection = () => {
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-24 bg-primary text-white overflow-hidden relative scroll-mt-20">
+    <section id="testimonials" className="py-24 bg-primary text-white overflow-hidden relative scroll-mt-20 perf-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Depoimentos</h2>
@@ -661,10 +676,10 @@ const TestimonialsSection = () => {
           {testimonials.map((t, index) => (
             <motion.div
               key={t.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.35, delay: index * 0.08 }}
               className="group bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-accent/50 transition-all"
             >
               <div className="flex gap-1 mb-6">
@@ -679,6 +694,8 @@ const TestimonialsSection = () => {
                 <img 
                   src={t.image} 
                   alt={t.name} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-12 h-12 rounded-full object-cover border-2 border-accent"
                   referrerPolicy="no-referrer"
                 />
@@ -693,8 +710,8 @@ const TestimonialsSection = () => {
       </div>
       
       {/* Abstract Background Decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/20 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/15 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 blur-[80px] rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
     </section>
   );
 };
@@ -728,12 +745,13 @@ ${formData.message}`;
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 scroll-mt-20">
+    <section id="contact" className="py-16 md:py-24 scroll-mt-20 perf-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.4 }}
           className="max-w-6xl mx-auto bg-surface-light rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-sm border border-white/10"
         >
           <div className="flex flex-col lg:flex-row">

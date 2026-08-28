@@ -15,13 +15,33 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
     @apply font-sans bg-app-bg text-slate-300;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-brand font-bold uppercase;
   }
+
+  img {
+    content-visibility: auto;
+  }
+}
+
+.perf-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
+}
+
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
 }
