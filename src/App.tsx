@@ -75,7 +75,7 @@ const services: Service[] = [
     title: 'Segurança & Monitoramento',
     description: 'Proteção total com câmeras 4K, fechaduras biométricas e sensores que avisam qualquer movimentação suspeita.',
     icon: <ShieldCheck className="w-6 h-6" />,
-    imageUrl: '/camera.jpg',
+    imageUrl: '/camera.jpg?v=2',
     benefits: ['Monitoramento em tempo real', 'Acesso remoto global', 'Integração com sistemas policiais']
   },
   {
