@@ -715,7 +715,7 @@ const EventsSection = () => {
                 <div className="grid grid-cols-2 gap-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group">
-                      <img src="/casacor-fachada.jpg" alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                      <img src={`/casacor-foto-${i}.jpg`} alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
                       <span className="z-10 text-xs font-bold uppercase tracking-widest text-white/80 bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">Foto {i}</span>
                     </div>
                   ))}
