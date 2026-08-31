@@ -496,13 +496,13 @@ const AboutSection = () => {
               className="relative rounded-[40px] overflow-hidden shadow-2xl z-10 border-8 border-white"
             >
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
-                alt="Escritório Domus Integra" 
-                loading="lazy"
-                decoding="async"
-                className="w-full h-[450px] object-cover"
-                referrerPolicy="no-referrer"
-              />
+                  src="/mapa-rs.jpg" 
+                  alt="Mapa de Atuação Domus Integra" 
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-[450px] object-cover"
+                  referrerPolicy="no-referrer"
+                />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent pointer-events-none" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
