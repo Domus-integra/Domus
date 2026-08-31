@@ -476,6 +476,35 @@ const ServiceSection = () => {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-all z-[210]"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={24} />
+            </button>
+            <motion.img 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              src={selectedImage} 
+              alt="Casacor ampliada" 
+              className="max-w-[1200px] w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl shadow-black/50"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
@@ -651,6 +680,7 @@ const WarrantySection = () => {
 
 const EventsSection = () => {
   const [activeTab, setActiveTab] = useState<'casacor' | 'mostraglass'>('casacor');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section id="events" className="py-24 bg-surface-dark border-t border-white/10 relative overflow-hidden perf-section scroll-mt-20">
@@ -714,9 +744,13 @@ const EventsSection = () => {
                 {/* Grid of images */}
                 <div className="grid grid-cols-2 gap-4">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group">
-                      <img src={`/casacor-foto-${i}.jpg`} alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
-                      <span className="z-10 text-xs font-bold uppercase tracking-widest text-white/80 bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">Foto {i}</span>
+                    <div 
+                      key={i} 
+                      className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group cursor-pointer"
+                      onClick={() => setSelectedImage(`/casacor-foto-${i}.jpg`)}
+                    >
+                      <img src={`/casacor-foto-${i}.jpg`} alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none" />
                     </div>
                   ))}
                 </div>
