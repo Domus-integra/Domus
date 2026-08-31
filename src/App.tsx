@@ -56,40 +56,40 @@ interface Testimonial {
 const services: Service[] = [
   {
     id: 'decentralized',
-    title: 'Automação Descentralizada',
-    description: 'Sistema inovador sem central única, garantindo maior estabilidade, escalabilidade e independência para os dispositivos do seu lar.',
+    title: 'AutomaÃ§Ã£o Descentralizada',
+    description: 'Sistema inovador sem central Ãºnica, garantindo maior estabilidade, escalabilidade e independÃªncia para os dispositivos do seu lar.',
     icon: <Network className="w-6 h-6" />,
     imageUrl: '/modulo-automacao.jpg',
-    benefits: ['Sem falha única de sistema', 'Fácil expansão e modulação', 'Processamento local mais rápido', 'Instalação sem obras e sem quebra-quebra']
+    benefits: ['Sem falha Ãºnica de sistema', 'FÃ¡cil expansÃ£o e modulaÃ§Ã£o', 'Processamento local mais rÃ¡pido', 'InstalaÃ§Ã£o sem obras e sem quebra-quebra']
   },
   {
     id: 'lighting',
-    title: 'Iluminação Inteligente',
+    title: 'IluminaÃ§Ã£o Inteligente',
     description: 'Controle a atmosfera da sua casa com um toque. Crie cenas personalizadas para cinema, jantar ou relaxamento.',
     icon: <Lightbulb className="w-6 h-6" />,
     imageUrl: '/luzes-aconchego.jpg',
-    benefits: ['Economia de energia de até 30%', 'Controle por voz ou smartphone', 'Simulação de presença para segurança']
+    benefits: ['Economia de energia de atÃ© 30%', 'Controle por voz ou smartphone', 'SimulaÃ§Ã£o de presenÃ§a para seguranÃ§a']
   },
   {
     id: 'security',
-    title: 'Segurança & Monitoramento',
-    description: 'Proteção total com câmeras 4K, fechaduras biométricas e sensores que avisam qualquer movimentação suspeita.',
+    title: 'SeguranÃ§a & Monitoramento',
+    description: 'ProteÃ§Ã£o total com cÃ¢meras 4K, fechaduras biomÃ©tricas e sensores que avisam qualquer movimentaÃ§Ã£o suspeita.',
     icon: <ShieldCheck className="w-6 h-6" />,
     imageUrl: '/camera.jpg?v=2',
-    benefits: ['Monitoramento em tempo real', 'Acesso remoto global', 'Integração com sistemas policiais']
+    benefits: ['Monitoramento em tempo real', 'Acesso remoto global', 'IntegraÃ§Ã£o com sistemas policiais']
   },
   {
     id: 'entertainment',
-    title: 'Home Cinema & Áudio Multiroom',
-    description: 'Experiência de cinema no conforto do seu sofá. Áudio de alta fidelidade em todos os ambientes da casa.',
+    title: 'Home Cinema & Ãudio Multiroom',
+    description: 'ExperiÃªncia de cinema no conforto do seu sofÃ¡. Ãudio de alta fidelidade em todos os ambientes da casa.',
     icon: <Tv className="w-6 h-6" />,
     imageUrl: '/Home-Cinema.jpg',
-    benefits: ['Calibração profissional de som', 'Automação de projetores e telas', 'Playlist única para toda a casa']
+    benefits: ['CalibraÃ§Ã£o profissional de som', 'AutomaÃ§Ã£o de projetores e telas', 'Playlist Ãºnica para toda a casa']
   },
   {
     id: 'climated',
-    title: 'Climatização Inteligente',
-    description: 'Sua casa na temperatura ideal antes mesmo de você chegar. Conforto térmico e eficiência energética.',
+    title: 'ClimatizaÃ§Ã£o Inteligente',
+    description: 'Sua casa na temperatura ideal antes mesmo de vocÃª chegar. Conforto tÃ©rmico e eficiÃªncia energÃ©tica.',
     icon: <Thermometer className="w-6 h-6" />,
     imageUrl: '/ar-condicionado.jpg',
     benefits: ['Controle de temperatura por ambiente', 'Sensor de umidade e qualidade do ar', 'Agendamento inteligente']
@@ -100,15 +100,15 @@ const services: Service[] = [
     description: 'A base para uma casa conectada. Wi-Fi robusto eliminando pontos cegos e garantindo estabilidade total.',
     icon: <Wifi className="w-6 h-6" />,
     imageUrl: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Tecnologia Wi-Fi 6', 'Redundância de sinal', 'Suporte a centenas de dispositivos']
+    benefits: ['Tecnologia Wi-Fi 6', 'RedundÃ¢ncia de sinal', 'Suporte a centenas de dispositivos']
   },
   {
     id: 'integration',
-    title: 'Automação Centralizada',
-    description: 'Gerencie tudo através de um único painel ou comando de voz. Uma interface simples para uma tecnologia complexa.',
+    title: 'AutomaÃ§Ã£o Centralizada',
+    description: 'Gerencie tudo atravÃ©s de um Ãºnico painel ou comando de voz. Uma interface simples para uma tecnologia complexa.',
     icon: <Smartphone className="w-6 h-6" />,
     imageUrl: '/automacao-centralizado.jpg',
-    benefits: ['Interface intuitiva', 'Compatibilidade universal', 'Atualizações automáticas do sistema']
+    benefits: ['Interface intuitiva', 'Compatibilidade universal', 'AtualizaÃ§Ãµes automÃ¡ticas do sistema']
   }
 ];
 
@@ -117,23 +117,23 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: 'Ricardo Oliveira',
     role: 'Arquiteto',
-    content: 'O sistema de automação superou todas as minhas expectativas. A integração é perfeita e o suporte técnico é exemplar. Meus clientes adoram o diferencial.',
+    content: 'O sistema de automaÃ§Ã£o superou todas as minhas expectativas. A integraÃ§Ã£o Ã© perfeita e o suporte tÃ©cnico Ã© exemplar. Meus clientes adoram o diferencial.',
     rating: 5,
     image: '/Ricardo-Oliveira.jpg'
   },
   {
     id: 2,
     name: 'Clara Mendes',
-    role: 'Empresária',
-    content: 'Poder controlar a iluminação e segurança da minha casa pelo celular me trouxe uma paz de espírito incrível. Recomendo para todos que buscam conforto.',
+    role: 'EmpresÃ¡ria',
+    content: 'Poder controlar a iluminaÃ§Ã£o e seguranÃ§a da minha casa pelo celular me trouxe uma paz de espÃ­rito incrÃ­vel. Recomendo para todos que buscam conforto.',
     rating: 5,
     image: '/Clara-Mendes.jpg'
   },
   {
     id: 3,
-    name: 'Maurício Silva',
+    name: 'MaurÃ­cio Silva',
     role: 'Sommelier',
-    content: 'O projeto de áudio multiroom na minha adega e área gourmet ficou impecável. A qualidade do som é de outro nível. Trabalho profissional!',
+    content: 'O projeto de Ã¡udio multiroom na minha adega e Ã¡rea gourmet ficou impecÃ¡vel. A qualidade do som Ã© de outro nÃ­vel. Trabalho profissional!',
     rating: 5,
     image: '/Mauricio-Silva.jpg'
   }
@@ -150,15 +150,16 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4 min-h-[5rem]">
           <div className="flex items-center">
             <div className="flex items-center">
-              <img src="/Logo-Domus.png" alt="Domus Íntegra Logo" className="h-16 sm:h-20 w-auto object-contain invert brightness-0" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
-              <span className="hidden text-xl font-brand font-bold tracking-tighter text-white uppercase">DOMUS<span className="text-blue-500 underline decoration-blue-500/20 decoration-4">ÍNTEGRA</span></span>
+              <img src="/Logo-Domus.png" alt="Domus Ãntegra Logo" className="h-16 sm:h-20 w-auto object-contain invert brightness-0" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+              <span className="hidden text-xl font-brand font-bold tracking-tighter text-white uppercase">DOMUS<span className="text-blue-500 underline decoration-blue-500/20 decoration-4">ÃNTEGRA</span></span>
             </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">Serviços</a>
-            <a href="#about" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">Sobre Nós</a>
+            <a href="#events" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">Eventos</a>
             <a href="#testimonials" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">Depoimentos</a>
+            <a href="#services" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">ServiÃ§os</a>
+            <a href="#about" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">Sobre NÃ³s</a>
             <div className="h-4 w-px bg-white/20" />
             <a 
               href="https://wa.me/5551991308627" 
@@ -197,9 +198,10 @@ const Navbar = () => {
             className="md:hidden bg-surface border-b border-white/20 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
-              <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Serviços</a>
-              <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Sobre Nós</a>
+              <a href="#events" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Eventos</a>
               <a href="#testimonials" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Depoimentos</a>
+              <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">ServiÃ§os</a>
+              <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Sobre NÃ³s</a>
               <a 
                 href="https://wa.me/5551991308627" 
                 target="_blank" 
@@ -237,21 +239,21 @@ const Hero = () => {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs font-bold uppercase tracking-wider mb-6">
                 <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                Líder em Automação Residencial
+                LÃ­der em AutomaÃ§Ã£o Residencial
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
                 Seu Lar, Mais <span className="text-blue-400 underline decoration-blue-500/50 decoration-8 underline-offset-4">Inteligente</span> do que nunca
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
-                Transformamos casas em experiências tecnológicas integradas. Do controle de voz à segurança avançada, criamos o ambiente perfeito para seu estilo de vida.
+                Transformamos casas em experiÃªncias tecnolÃ³gicas integradas. Do controle de voz Ã  seguranÃ§a avanÃ§ada, criamos o ambiente perfeito para seu estilo de vida.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <a href="#contact" className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/30">
-                  Solicitar Orçamento
+                  Solicitar OrÃ§amento
                   <ArrowRight size={18} />
                 </a>
                 <a href="#services" className="w-full sm:w-auto bg-surface text-white border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-surface-light transition-all flex items-center justify-center gap-2">
-                  Ver Serviços
+                  Ver ServiÃ§os
                 </a>
               </div>
               
@@ -268,7 +270,7 @@ const Hero = () => {
                 <div className="w-px h-10 bg-white/20" />
                 <div>
                   <div className="text-2xl font-bold text-white">100%</div>
-                  <div className="text-sm text-slate-400">Satisfação</div>
+                  <div className="text-sm text-slate-400">SatisfaÃ§Ã£o</div>
                 </div>
               </div>
             </motion.div>
@@ -320,7 +322,7 @@ const Hero = () => {
                     <div className="relative w-[70px] h-[124px] sm:w-[90px] sm:h-[160px] rounded-xl overflow-hidden shrink-0 bg-slate-900 shadow-inner">
                        <img 
                           src="https://img.youtube.com/vi/mVCsF-H9ViM/hqdefault.jpg" 
-                          alt="Depoimento Vídeo Tinta La Vida" 
+                          alt="Depoimento VÃ­deo Tinta La Vida" 
                           loading="eager"
                           decoding="async"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
@@ -348,7 +350,7 @@ const Hero = () => {
                        </div>
                        
                        <p className="text-xs sm:text-sm text-slate-400 line-clamp-2 leading-relaxed">
-                          "Projeto completo com som ambiente, televisores, câmeras de segurança e sistema de alarme integrado."
+                          "Projeto completo com som ambiente, televisores, cÃ¢meras de seguranÃ§a e sistema de alarme integrado."
                        </p>
                     </div>
                  </div>
@@ -412,9 +414,9 @@ const ServiceSection = () => {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">O Que Fazemos</h2>
-          <h3 className="text-4xl font-bold text-white mb-6">Soluções Premium para Cada Necessidade</h3>
+          <h3 className="text-4xl font-bold text-white mb-6">SoluÃ§Ãµes Premium para Cada Necessidade</h3>
           <p className="text-lg text-slate-300">
-            Oferecemos uma linha completa de serviços projetados para levar máximo conforto e sofisticação até você.
+            Oferecemos uma linha completa de serviÃ§os projetados para levar mÃ¡ximo conforto e sofisticaÃ§Ã£o atÃ© vocÃª.
           </p>
         </motion.div>
 
@@ -493,7 +495,7 @@ const AboutSection = () => {
             >
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
-                alt="Escritório Domus Integra" 
+                alt="EscritÃ³rio Domus Integra" 
                 loading="lazy"
                 decoding="async"
                 className="w-full h-[450px] object-cover"
@@ -507,7 +509,7 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <div className="text-2xl font-bold tracking-tight">60+ Cidades</div>
-                    <div className="text-sm font-medium opacity-80">Levando inovação tecnológica</div>
+                    <div className="text-sm font-medium opacity-80">Levando inovaÃ§Ã£o tecnolÃ³gica</div>
                   </div>
                 </div>
               </div>
@@ -522,18 +524,18 @@ const AboutSection = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Sobre Nós</h2>
-              <h3 className="text-4xl font-bold text-white mb-8 tracking-tight">Uma jornada de inovação e praticidade</h3>
+              <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Sobre NÃ³s</h2>
+              <h3 className="text-4xl font-bold text-white mb-8 tracking-tight">Uma jornada de inovaÃ§Ã£o e praticidade</h3>
               
               <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
                 <p>
-                  A <span className="text-blue-400 font-bold">Domus Íntegra</span> é uma empresa especializada em automação residencial, sistemas de monitoramento (CFTV), soluções audiovisuais e sistemas de som ambiente, criada com o propósito de levar inovação, tecnologia e praticidade para residências e ambientes comerciais.
+                  A <span className="text-blue-400 font-bold">Domus Ãntegra</span> Ã© uma empresa especializada em automaÃ§Ã£o residencial, sistemas de monitoramento (CFTV), soluÃ§Ãµes audiovisuais e sistemas de som ambiente, criada com o propÃ³sito de levar inovaÃ§Ã£o, tecnologia e praticidade para residÃªncias e ambientes comerciais.
                 </p>
                 <p>
-                  Fundada por amigos que acreditam no poder da tecnologia para transformar o dia a dia, a Domus Íntegra atua hoje em <strong>mais de 60 cidades</strong>, oferecendo soluções inteligentes, seguras e personalizadas para cada projeto.
+                  Fundada por amigos que acreditam no poder da tecnologia para transformar o dia a dia, a Domus Ãntegra atua hoje em <strong>mais de 60 cidades</strong>, oferecendo soluÃ§Ãµes inteligentes, seguras e personalizadas para cada projeto.
                 </p>
                 <p>
-                  Nosso foco está em entender as necessidades de cada cliente e entregar sistemas eficientes, integrados e alinhados às melhores tecnologias do mercado. Trabalhamos com compromisso, qualidade e visão estratégica, sempre buscando proporcionar mais conforto, segurança e funcionalidade aos ambientes, conectando pessoas ao que há de mais moderno em tecnologia.
+                  Nosso foco estÃ¡ em entender as necessidades de cada cliente e entregar sistemas eficientes, integrados e alinhados Ã s melhores tecnologias do mercado. Trabalhamos com compromisso, qualidade e visÃ£o estratÃ©gica, sempre buscando proporcionar mais conforto, seguranÃ§a e funcionalidade aos ambientes, conectando pessoas ao que hÃ¡ de mais moderno em tecnologia.
                 </p>
               </div>
 
@@ -541,7 +543,7 @@ const AboutSection = () => {
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-2 text-blue-400">
                     <CheckCircle2 size={20} className="text-blue-500" />
-                    <span className="font-bold text-white">Visão Estratégica</span>
+                    <span className="font-bold text-white">VisÃ£o EstratÃ©gica</span>
                   </div>
                   <p className="text-sm text-slate-400">Planejamento focado no futuro do seu lar.</p>
                 </div>
@@ -550,7 +552,7 @@ const AboutSection = () => {
                     <CheckCircle2 size={20} className="text-blue-500" />
                     <span className="font-bold text-white">Qualidade Domus</span>
                   </div>
-                  <p className="text-sm text-slate-400">Compromisso total com a entrega de excelência.</p>
+                  <p className="text-sm text-slate-400">Compromisso total com a entrega de excelÃªncia.</p>
                 </div>
               </div>
             </motion.div>
@@ -573,10 +575,10 @@ const WarrantySection = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4 }}
             >
-              <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Garantia e Pós-Venda</h2>
-              <h3 className="text-4xl font-bold text-white mb-6 tracking-tight">Nosso compromisso não termina na entrega.</h3>
+              <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Garantia e PÃ³s-Venda</h2>
+              <h3 className="text-4xl font-bold text-white mb-6 tracking-tight">Nosso compromisso nÃ£o termina na entrega.</h3>
               <p className="text-lg text-slate-300 leading-relaxed mb-10">
-                Acreditamos que a verdadeira excelência em automação reside na tranquilidade de longo prazo. Nosso suporte técnico especializado e garantias robustas asseguram que seu sistema funcione perfeitamente hoje e no futuro.
+                Acreditamos que a verdadeira excelÃªncia em automaÃ§Ã£o reside na tranquilidade de longo prazo. Nosso suporte tÃ©cnico especializado e garantias robustas asseguram que seu sistema funcione perfeitamente hoje e no futuro.
               </p>
 
               <div className="space-y-8">
@@ -586,7 +588,7 @@ const WarrantySection = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2">Garantia Estendida</h4>
-                    <p className="text-slate-300">Equipamentos e instalação protegidos. Oferecemos as melhores condições de garantia do mercado para sua total paz de espírito.</p>
+                    <p className="text-slate-300">Equipamentos e instalaÃ§Ã£o protegidos. Oferecemos as melhores condiÃ§Ãµes de garantia do mercado para sua total paz de espÃ­rito.</p>
                   </div>
                 </div>
 
@@ -595,8 +597,8 @@ const WarrantySection = () => {
                     <Headset className="text-blue-400 w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">Suporte Técnico Ágil</h4>
-                    <p className="text-slate-300">Nossa equipe de engenharia e suporte está sempre pronta para auxiliar remotamente ou presencialmente com rapidez e eficiência.</p>
+                    <h4 className="text-xl font-bold text-white mb-2">Suporte TÃ©cnico Ãgil</h4>
+                    <p className="text-slate-300">Nossa equipe de engenharia e suporte estÃ¡ sempre pronta para auxiliar remotamente ou presencialmente com rapidez e eficiÃªncia.</p>
                   </div>
                 </div>
 
@@ -605,8 +607,8 @@ const WarrantySection = () => {
                     <Wrench className="text-blue-400 w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">Manutenção Preventiva</h4>
-                    <p className="text-slate-300">Acompanhamos a saúde do seu sistema continuamente, aplicando atualizações e ajustes para garantir máxima performance.</p>
+                    <h4 className="text-xl font-bold text-white mb-2">ManutenÃ§Ã£o Preventiva</h4>
+                    <p className="text-slate-300">Acompanhamos a saÃºde do seu sistema continuamente, aplicando atualizaÃ§Ãµes e ajustes para garantir mÃ¡xima performance.</p>
                   </div>
                 </div>
               </div>
@@ -624,7 +626,7 @@ const WarrantySection = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 border-8 border-white/10">
                 <img 
                   src="/carroeferramenta.jpg" 
-                  alt="Suporte Técnico Domus Integra" 
+                  alt="Suporte TÃ©cnico Domus Integra" 
                   loading="lazy"
                   decoding="async"
                   className="w-full h-[450px] object-cover"
@@ -633,13 +635,111 @@ const WarrantySection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-8 left-8 right-8 text-white">
                   <div className="text-3xl font-bold mb-2">100% de Suporte</div>
-                  <p className="text-white/80 font-medium">Você sempre no controle, nós sempre à disposição.</p>
+                  <p className="text-white/80 font-medium">VocÃª sempre no controle, nÃ³s sempre Ã  disposiÃ§Ã£o.</p>
                 </div>
               </div>
               <div className="absolute top-10 -right-10 w-48 h-48 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/15 rounded-full blur-2xl pointer-events-none" />
             </motion.div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const EventsSection = () => {
+  const [activeTab, setActiveTab] = useState<'casacor' | 'mostraglass'>('casacor');
+
+  return (
+    <section id="events" className="py-24 bg-surface-dark border-t border-white/10 relative overflow-hidden perf-section scroll-mt-20">
+      {/* subtle gradient background */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-blue-900/10 blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-brand font-bold mb-6 text-white tracking-tighter">
+            Nossa PresenÃ§a em <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Grandes Eventos</span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+            A excelÃªncia da Domus Ãntegra validada nos principais eventos de arquitetura e design do paÃ­s.
+          </p>
+        </motion.div>
+
+        {/* Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-surface p-1.5 rounded-2xl flex gap-2 border border-white/10">
+            <button
+              onClick={() => setActiveTab('casacor')}
+              className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${activeTab === 'casacor' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+            >
+              CASACOR
+            </button>
+            <button
+              onClick={() => setActiveTab('mostraglass')}
+              className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${activeTab === 'mostraglass' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+            >
+              MOSTRAGLASS (Em breve)
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="min-h-[400px]">
+          <AnimatePresence mode="wait">
+            {activeTab === 'casacor' && (
+              <motion.div
+                key="casacor"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+              >
+                {/* Placeholder for CASACOR Video/Main Image */}
+                <div className="aspect-video bg-surface rounded-2xl border border-white/10 flex flex-col items-center justify-center text-slate-500 overflow-hidden relative group cursor-pointer">
+                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
+                   <img src="/Automacao-app.jpg" alt="Casacor" className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700" />
+                   <Play size={48} className="text-white z-20 mb-4 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                   <p className="z-20 font-medium text-white px-4 text-center">EspaÃ§o para VÃ­deo CASACOR</p>
+                </div>
+                
+                {/* Grid of images */}
+                <div className="grid grid-cols-2 gap-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group">
+                      <img src="/Central1.jpg" alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                      <span className="z-10 text-xs font-bold uppercase tracking-widest text-white/80 bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">Foto {i}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'mostraglass' && (
+              <motion.div
+                key="mostraglass"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col items-center justify-center h-[400px] bg-surface rounded-3xl border border-dashed border-white/20"
+              >
+                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6">
+                  <Clock size={32} className="text-blue-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Aguarde...</h3>
+                <p className="text-slate-400 max-w-md text-center px-4">
+                  Daqui a 30 dias, este espaÃ§o serÃ¡ atualizado com a galeria completa de fotos e vÃ­deos da nossa participaÃ§Ã£o na Mostraglass.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
@@ -660,7 +760,7 @@ const TestimonialsSection = () => {
           <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">Depoimentos</h2>
           <h3 className="text-4xl font-bold mb-6">O que nossos clientes dizem</h3>
           <p className="text-lg text-slate-400 mb-8">
-             Orgulhamo-nos de construir relacionamentos duradouros através de excelência em cada projeto.
+             Orgulhamo-nos de construir relacionamentos duradouros atravÃ©s de excelÃªncia em cada projeto.
           </p>
           <a 
             href="https://share.google/i79S59xFW1yoJWWqn" 
@@ -669,7 +769,7 @@ const TestimonialsSection = () => {
             className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3 rounded-full text-sm font-bold transition-all group"
           >
             <Star className="fill-yellow-500 text-yellow-500 w-4 h-4" />
-            Veja nossas avaliações no Google
+            Veja nossas avaliaÃ§Ãµes no Google
           </a>
         </motion.div>
 
@@ -723,8 +823,8 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá! Meu nome é ${formData.name}.
-Email: ${formData.email || 'Não informado'}
+    const message = `OlÃ¡! Meu nome Ã© ${formData.name}.
+Email: ${formData.email || 'NÃ£o informado'}
 Telefone: ${formData.phone}
 Cidade: ${formData.city}
 Mensagem:
@@ -733,7 +833,7 @@ ${formData.message}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5551991308627?text=${encodedMessage}`;
     
-    // Dispara o evento de conversão do Google Ads
+    // Dispara o evento de conversÃ£o do Google Ads
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
         'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD'
@@ -757,9 +857,9 @@ ${formData.message}`;
         >
           <div className="flex flex-col lg:flex-row">
             <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:p-20 bg-primary text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Vamos dar o próximo passo?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Vamos dar o prÃ³ximo passo?</h2>
               <p className="text-slate-400 mb-8 md:mb-12 text-base md:text-lg">
-                Nossa equipe está pronta para desenhar um projeto exclusivo para você. Preencha o formulário ou nos chame no WhatsApp.
+                Nossa equipe estÃ¡ pronta para desenhar um projeto exclusivo para vocÃª. Preencha o formulÃ¡rio ou nos chame no WhatsApp.
               </p>
               
               <div className="space-y-8">
@@ -779,7 +879,7 @@ ${formData.message}`;
                   </div>
                   <div>
                     <div className="text-slate-400 text-sm font-medium mb-1">Atendimento</div>
-                    <div className="font-bold text-lg">Seg - Sex: 09h às 18h</div>
+                    <div className="font-bold text-lg">Seg - Sex: 09h Ã s 18h</div>
                   </div>
                 </div>
               </div>
@@ -805,7 +905,7 @@ ${formData.message}`;
                     <CheckCircle2 size={32} className="text-green-600 sm:w-10 sm:h-10" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Mensagem Enviada!</h3>
-                  <p className="text-sm sm:text-base text-slate-400 mb-8">Obrigado pelo contato. Nossa equipe retornará em breve para agendarmos sua consultoria.</p>
+                  <p className="text-sm sm:text-base text-slate-400 mb-8">Obrigado pelo contato. Nossa equipe retornarÃ¡ em breve para agendarmos sua consultoria.</p>
                   <button 
                     onClick={() => setSubmitted(false)}
                     className="text-blue-600 font-bold hover:underline"
@@ -818,7 +918,7 @@ ${formData.message}`;
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
-                        Nome Completo <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                        Nome Completo <span className="text-slate-400 font-normal text-xs ml-1">(ObrigatÃ³rio)</span>
                       </label>
                       <input 
                         type="text" 
@@ -826,7 +926,7 @@ ${formData.message}`;
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-p"
-                        placeholder="Ex: João Silva"
+                        placeholder="Ex: JoÃ£o Silva"
                       />
                     </div>
                     <div>
@@ -846,7 +946,7 @@ ${formData.message}`;
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
-                        WhatsApp <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                        WhatsApp <span className="text-slate-400 font-normal text-xs ml-1">(ObrigatÃ³rio)</span>
                       </label>
                       <input 
                         type="tel" 
@@ -859,7 +959,7 @@ ${formData.message}`;
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
-                        Cidade <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                        Cidade <span className="text-slate-400 font-normal text-xs ml-1">(ObrigatÃ³rio)</span>
                       </label>
                       <input 
                         type="text" 
@@ -874,7 +974,7 @@ ${formData.message}`;
                   
                   <div>
                     <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
-                      Como podemos ajudar? <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                      Como podemos ajudar? <span className="text-slate-400 font-normal text-xs ml-1">(ObrigatÃ³rio)</span>
                     </label>
                     <textarea 
                       rows={4}
@@ -882,7 +982,7 @@ ${formData.message}`;
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
-                      placeholder="Descreva seu projeto ou dúvida..."
+                      placeholder="Descreva seu projeto ou dÃºvida..."
                     ></textarea>
                   </div>
                   
@@ -895,7 +995,7 @@ ${formData.message}`;
                   </button>
                   
                   <p className="text-[10px] text-center text-slate-400 px-8 uppercase tracking-widest leading-relaxed">
-                    Ao clicar, você concorda com nossos termos de privacidade e autoriza o contato de nossos especialistas.
+                    Ao clicar, vocÃª concorda com nossos termos de privacidade e autoriza o contato de nossos especialistas.
                   </p>
                 </form>
               )}
@@ -925,11 +1025,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <img src="/Logo-Domus.png" alt="Domus Íntegra Logo" className="h-14 sm:h-16 w-auto object-contain invert brightness-0" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
-              <span className="hidden text-lg font-brand font-bold tracking-tighter text-white uppercase">Domus<span className="text-blue-500 underline decoration-blue-500/20">Íntegra</span></span>
+              <img src="/Logo-Domus.png" alt="Domus Ãntegra Logo" className="h-14 sm:h-16 w-auto object-contain invert brightness-0" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+              <span className="hidden text-lg font-brand font-bold tracking-tighter text-white uppercase">Domus<span className="text-blue-500 underline decoration-blue-500/20">Ãntegra</span></span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Líder em soluções de automação residencial de luxo no Brasil. Qualidade, sofisticação e tecnologia de ponta para o seu lar.
+              LÃ­der em soluÃ§Ãµes de automaÃ§Ã£o residencial de luxo no Brasil. Qualidade, sofisticaÃ§Ã£o e tecnologia de ponta para o seu lar.
             </p>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-surface border border-white/20 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
@@ -942,28 +1042,28 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Navegação</h4>
+            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">NavegaÃ§Ã£o</h4>
             <ul className="space-y-4">
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Serviços</a></li>
-              <li><a href="#about" className="text-sm text-slate-400 hover:text-blue-500">Sobre Nós</a></li>
+              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">ServiÃ§os</a></li>
+              <li><a href="#about" className="text-sm text-slate-400 hover:text-blue-500">Sobre NÃ³s</a></li>
               <li><a href="#testimonials" className="text-sm text-slate-400 hover:text-blue-500">Depoimentos</a></li>
               <li><a href="#contact" className="text-sm text-slate-400 hover:text-blue-500">Contatos</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Serviços</h4>
+            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">ServiÃ§os</h4>
             <ul className="space-y-4">
               <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Home Cinema</a></li>
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Iluminação</a></li>
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Segurança</a></li>
+              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">IluminaÃ§Ã£o</a></li>
+              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">SeguranÃ§a</a></li>
               <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Redes Wi-Fi</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Newsletter</h4>
-            <p className="text-sm text-slate-400 mb-6">Receba tendências de tecnologia e design diretamente no seu email.</p>
+            <p className="text-sm text-slate-400 mb-6">Receba tendÃªncias de tecnologia e design diretamente no seu email.</p>
             <div className="flex gap-2">
               <input 
                 type="email" 
@@ -978,9 +1078,9 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/20 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <div>© 2024 Domus Íntegra Automação. Todos os direitos reservados.</div>
+          <div>Â© 2024 Domus Ãntegra AutomaÃ§Ã£o. Todos os direitos reservados.</div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-blue-600">Política de Privacidade</a>
+            <a href="#" className="hover:text-blue-600">PolÃ­tica de Privacidade</a>
             <a href="#" className="hover:text-blue-600">Termos de Uso</a>
           </div>
         </div>
@@ -998,6 +1098,17 @@ export default function App() {
       <main>
         <Hero />
         
+        {/* High Priority: Validation (Events + Testimonials) */}
+        <EventsSection />
+        <TestimonialsSection />
+        
+        {/* Core Offering */}
+        <ServiceSection />
+        
+        {/* Trust & Details */}
+        <AboutSection />
+        <WarrantySection />
+
         {/* Partners Banner (Subtle) */}
         <section className="bg-surface py-12 border-y border-white/10 overflow-hidden whitespace-nowrap">
           <div className="container mx-auto px-4">
@@ -1013,10 +1124,6 @@ export default function App() {
              </div>
           </div>
         </section>
-
-        <ServiceSection />
-        <AboutSection />
-        <WarrantySection />
         
         {/* Floating WhatsApp Button for all pages */}
         <a 
@@ -1037,10 +1144,10 @@ export default function App() {
           </span>
         </a>
 
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
     </div>
   );
 }
+
