@@ -703,11 +703,12 @@ const EventsSection = () => {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8"
               >
                 {/* Placeholder for CASACOR Video/Main Image */}
-                <div className="aspect-video bg-surface rounded-2xl border border-white/10 flex flex-col items-center justify-center text-slate-500 overflow-hidden relative group cursor-pointer">
-                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
-                   <img src="/eventos-patrocinador.png" alt="Casacor Patrocinador" className="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-700" />
-                   <Play size={48} className="text-white z-20 mb-4 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                   <p className="z-20 font-medium text-white px-4 text-center">Espaço para Vídeo CASACOR</p>
+                <div className="aspect-video bg-surface rounded-2xl border border-dashed border-white/20 flex flex-col items-center justify-center text-slate-500 overflow-hidden relative group">
+                   <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 z-10 relative">
+                     <Play size={32} className="text-blue-400" />
+                   </div>
+                   <h3 className="text-2xl font-bold text-white mb-2 z-10 relative">Aguarde...</h3>
+                   <p className="z-10 font-medium text-slate-400 px-4 text-center">Vídeo Oficial da CASACOR em breve</p>
                 </div>
                 
                 {/* Grid of images */}
