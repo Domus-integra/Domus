@@ -6,6 +6,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
+  Crown,
+  Sparkles,
   Lightbulb, 
   ShieldCheck, 
   Tv, 
@@ -665,9 +667,12 @@ const EventsSection = () => {
           viewport={{ once: true, amount: 0.15 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-brand font-bold mb-6 text-white tracking-tighter">
-            Nossa Presença em <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Grandes Eventos</span>
-          </h2>
+          <div className="relative inline-block mb-6">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-20" />
+              <h2 className="relative text-3xl md:text-5xl font-brand font-black text-white tracking-tight uppercase">
+                Nossa Presença em <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-600 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]">Grandes Eventos</span>
+              </h2>
+            </div>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
             A excelência da Domus Íntegra validada nos principais eventos de arquitetura e design do país.
           </p>
