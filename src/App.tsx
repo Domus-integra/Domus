@@ -705,7 +705,7 @@ const EventsSection = () => {
                 {/* Placeholder for CASACOR Video/Main Image */}
                 <div className="aspect-video bg-surface rounded-2xl border border-white/10 flex flex-col items-center justify-center text-slate-500 overflow-hidden relative group cursor-pointer">
                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
-                   <img src="/Automacao-app.jpg" alt="Casacor" className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700" />
+                   <img src="/eventos-patrocinador.png" alt="Casacor Patrocinador" className="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-700" />
                    <Play size={48} className="text-white z-20 mb-4 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                    <p className="z-20 font-medium text-white px-4 text-center">Espaço para Vídeo CASACOR</p>
                 </div>
@@ -714,7 +714,7 @@ const EventsSection = () => {
                 <div className="grid grid-cols-2 gap-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group">
-                      <img src="/Central1.jpg" alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                      <img src="/casacor-fachada.jpg" alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
                       <span className="z-10 text-xs font-bold uppercase tracking-widest text-white/80 bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">Foto {i}</span>
                     </div>
                   ))}
@@ -729,13 +729,16 @@ const EventsSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col items-center justify-center h-[400px] bg-surface rounded-3xl border border-dashed border-white/20"
+                className="flex flex-col items-center justify-center h-[400px] bg-surface rounded-3xl border border-dashed border-white/20 relative overflow-hidden group"
               >
-                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6">
+                <img src="/mostraglass-mapa.jpg" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-all duration-700" alt="Mostraglass Planta" />
+                <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
+                
+                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 z-10 relative">
                   <Clock size={32} className="text-blue-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Aguarde...</h3>
-                <p className="text-slate-400 max-w-md text-center px-4">
+                <h3 className="text-2xl font-bold text-white mb-2 z-10 relative">Aguarde...</h3>
+                <p className="text-slate-400 max-w-md text-center px-4 z-10 relative">
                   Daqui a 30 dias, este espaço será atualizado com a galeria completa de fotos e vídeos da nossa participação na Mostraglass.
                 </p>
               </motion.div>
