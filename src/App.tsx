@@ -270,10 +270,10 @@ const Hero = () => {
                   <div className="text-sm text-slate-400">Anos de Mercado</div>
                 </div>
                 <div className="w-px h-10 bg-white/20" />
-                <div>
-                  <div className="text-2xl font-bold text-white">100%</div>
-                  <div className="text-sm text-slate-400">Satisfação</div>
-                </div>
+                                  <div>
+                    <div className="text-2xl font-bold text-white flex items-center gap-1">4.9 <Star className="fill-yellow-500 text-yellow-500 w-5 h-5 ml-1" /></div>
+                    <div className="text-sm text-slate-400">27 Avaliações Google</div>
+                  </div>
               </div>
             </motion.div>
           </div>
