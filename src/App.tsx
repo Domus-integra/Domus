@@ -725,8 +725,8 @@ const EventsSection = () => {
                       className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group cursor-pointer"
                       onClick={() => setSelectedImage(`/casacor-foto-${i}.jpg`)}
                     >
-                      <img src={`/casacor-foto-${i}.jpg`} alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none" />
+                      <img src={`/casacor-foto-${i}.jpg`} alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
                     </div>
                   ))}
                 </div>
