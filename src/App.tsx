@@ -69,7 +69,7 @@ const services: Service[] = [
     title: 'Iluminação Inteligente',
     description: 'Controle a atmosfera da sua casa com um toque. Crie cenas personalizadas para cinema, jantar ou relaxamento.',
     icon: <Lightbulb className="w-6 h-6" />,
-    imageUrl: '/luzes-aconchego.jpg',
+    imageUrl: '/iluminacao.jpg',
     benefits: ['Economia de energia de até 30%', 'Controle por voz ou smartphone', 'Simulação de presença para segurança']
   },
   {
