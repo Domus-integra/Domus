@@ -470,17 +470,23 @@ const lockFeatures = [
   {
     id: 'biometria',
     label: 'Biometria & Facial 3D',
-    desc: 'Destrave a porta em menos de 0,5s com leitura digital de alta precisão ou reconhecimento facial 3D mesmo no escuro.'
+    desc: 'Destrave a porta em menos de 0,5s com leitura digital de alta precisão ou reconhecimento facial 3D mesmo no escuro.',
+    image: '/fechadura-eletronica.jpg',
+    slotLabel: 'Foto 1 • Fechadura Smart'
   },
   {
     id: 'app',
-    label: 'Acesso Remoto via App',
-    desc: 'Abra a porta de onde estiver pelo celular, receba notificações de quem entrou e crie senhas com horário programado para visitas.'
+    label: 'Acesso via App',
+    desc: 'Abra a porta de onde estiver pelo celular, receba notificações de acesso e crie senhas temporárias para visitas.',
+    image: '/Central1.jpg',
+    slotLabel: 'Espaço 2 • Integração / App'
   },
   {
     id: 'instalacao',
-    label: 'Instalação Especializada',
-    desc: 'Equipe técnica própria para instalação limpa e precisa em portas de madeira, pivotantes ou vidro, com configuração completa.'
+    label: 'Instalação Própria',
+    desc: 'Equipe técnica própria para instalação limpa e precisa em portas de madeira, pivotantes ou vidro, pronta para uso.',
+    image: '/modulo-automacao.jpg',
+    slotLabel: 'Espaço 3 • Instalação / Vídeo'
   }
 ];
 
@@ -518,6 +524,7 @@ const fullProjectPillars = [
 const ServiceSection = () => {
   const [activeLockFeature, setActiveLockFeature] = useState(0);
   const [activePillar, setActivePillar] = useState(0);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const trackConversion = () => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -560,18 +567,33 @@ const ServiceSection = () => {
             className="group bg-gradient-to-b from-surface-light to-surface rounded-3xl overflow-hidden border-2 border-blue-500/40 hover:border-blue-400 shadow-2xl shadow-blue-950/40 flex flex-col justify-between relative scroll-mt-28 transition-all"
           >
             <div>
-              <div className="relative h-64 sm:h-72 overflow-hidden">
-                <img
-                  src="/fechadura-eletronica.jpg"
-                  alt="Fechadura Eletrônica Inteligente Domus Íntegra"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+              <div 
+                className="relative h-64 sm:h-72 overflow-hidden cursor-pointer"
+                onClick={() => setLightboxImage(lockFeatures[activeLockFeature].image)}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={lockFeatures[activeLockFeature].image}
+                    initial={{ opacity: 0.4, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0.4 }}
+                    transition={{ duration: 0.35 }}
+                    src={lockFeatures[activeLockFeature].image}
+                    alt="Fechadura Eletrônica Inteligente Domus Íntegra"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
                 
                 <div className="absolute top-4 left-4 flex items-center gap-2 bg-blue-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-blue-600/40">
                   <KeyRound size={14} /> Principal • Campeão de Instalações
+                </div>
+
+                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-white/20 flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn size={14} className="text-blue-400" />
+                  <span className="hidden sm:inline">Ampliar</span>
                 </div>
 
                 <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
@@ -583,13 +605,35 @@ const ServiceSection = () => {
               </div>
 
               <div className="p-6 sm:p-8 pt-4">
-                <p className="text-slate-300 mb-6 leading-relaxed">
+                {/* 3 Visual Media Slots for Smart Locks */}
+                <div className="grid grid-cols-3 gap-2.5 mb-5">
+                  {lockFeatures.map((feat, idx) => (
+                    <button
+                      key={feat.id}
+                      type="button"
+                      onClick={() => setActiveLockFeature(idx)}
+                      className={`relative h-16 sm:h-20 rounded-xl overflow-hidden border-2 transition-all cursor-pointer group/thumb ${
+                        activeLockFeature === idx
+                          ? 'border-blue-400 shadow-lg shadow-blue-500/25 scale-[1.02]'
+                          : 'border-white/10 opacity-65 hover:opacity-100 hover:border-white/30'
+                      }`}
+                    >
+                      <img src={feat.image} alt={feat.label} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      <span className="absolute bottom-1.5 left-2 right-1 text-[10px] font-bold text-white truncate text-left">
+                        {idx + 1}. {feat.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <p className="text-slate-300 mb-5 leading-relaxed text-sm sm:text-base">
                   Esqueça as chaves! Trabalhamos com a venda e instalação especializada das melhores fechaduras digitais, biométricas e faciais do mercado, integradas ao seu smartphone.
                 </p>
 
                 {/* Interactive Feature Selector */}
                 <div className="bg-app-bg/60 p-4 rounded-2xl border border-white/10 mb-6">
-                  <div className="flex flex-wrap gap-2 mb-3">
+                  <div className="flex flex-wrap gap-2 mb-2.5">
                     {lockFeatures.map((feat, idx) => (
                       <button
                         key={feat.id}
@@ -661,7 +705,10 @@ const ServiceSection = () => {
             className="group bg-gradient-to-b from-surface-light to-surface rounded-3xl overflow-hidden border-2 border-indigo-500/40 hover:border-indigo-400 shadow-2xl shadow-indigo-950/40 flex flex-col justify-between relative scroll-mt-28 transition-all"
           >
             <div>
-              <div className="relative h-64 sm:h-72 overflow-hidden">
+              <div 
+                className="relative h-64 sm:h-72 overflow-hidden cursor-pointer"
+                onClick={() => setLightboxImage(fullProjectPillars[activePillar].image)}
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={fullProjectPillars[activePillar].image}
@@ -673,13 +720,18 @@ const ServiceSection = () => {
                     alt={fullProjectPillars[activePillar].title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/35 to-transparent" />
 
                 <div className="absolute top-4 left-4 flex items-center gap-2 bg-indigo-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-indigo-600/40">
                   <Layers size={14} /> Solução 360° • Alto Padrão
+                </div>
+
+                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-white/20 flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn size={14} className="text-indigo-400" />
+                  <span className="hidden sm:inline">Ampliar</span>
                 </div>
 
                 <div className="absolute bottom-4 left-6 right-6">
@@ -689,22 +741,41 @@ const ServiceSection = () => {
               </div>
 
               <div className="p-6 sm:p-8 pt-4">
-                <p className="text-slate-300 mb-6 leading-relaxed">
+                {/* 4 Visual Media Slots for Full Projects */}
+                <div className="grid grid-cols-4 gap-2 mb-5">
+                  {fullProjectPillars.map((pillar, idx) => (
+                    <button
+                      key={pillar.id}
+                      type="button"
+                      onClick={() => setActivePillar(idx)}
+                      className={`relative h-16 sm:h-20 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                        activePillar === idx
+                          ? 'border-indigo-400 shadow-lg shadow-indigo-500/25 scale-[1.02]'
+                          : 'border-white/10 opacity-65 hover:opacity-100 hover:border-white/30'
+                      }`}
+                    >
+                      <img src={pillar.image} alt={pillar.label} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      <span className="absolute bottom-1.5 left-1.5 right-1 text-[9px] sm:text-[10px] font-bold text-white truncate text-left">
+                        {idx + 1}. {pillar.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <p className="text-slate-300 mb-5 leading-relaxed text-sm sm:text-base">
                   Executamos projetos inteiros de ponta a ponta — unindo <strong>Automação, Som Ambiente, CFTV e Home Cinema</strong> em um único ecossistema inteligente, sem dor de cabeça com múltiplos fornecedores.
                 </p>
 
                 {/* Interactive 4-Pillar Explorer */}
                 <div className="bg-app-bg/60 p-4 rounded-2xl border border-white/10 mb-6">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center justify-between">
-                    <span>Clique para explorar os 4 pilares do projeto:</span>
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-2.5">
                     {fullProjectPillars.map((pillar, idx) => (
                       <button
                         key={pillar.id}
                         type="button"
                         onClick={() => setActivePillar(idx)}
-                        className={`px-2.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
+                        className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
                           activePillar === idx
                             ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
                             : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
@@ -714,7 +785,7 @@ const ServiceSection = () => {
                       </button>
                     ))}
                   </div>
-                  <div className="min-h-[3.25rem]">
+                  <div className="min-h-[2.75rem]">
                     <div className="text-xs font-bold text-indigo-300 mb-0.5">{fullProjectPillars[activePillar].title}</div>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                       {fullProjectPillars[activePillar].desc}
@@ -763,6 +834,37 @@ const ServiceSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Lightbox for Service Spotlight Images */}
+        <AnimatePresence>
+          {lightboxImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
+              onClick={() => setLightboxImage(null)}
+            >
+              <button
+                className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-all z-[210] cursor-pointer"
+                onClick={() => setLightboxImage(null)}
+                aria-label="Fechar"
+              >
+                <X size={24} />
+              </button>
+              <motion.img
+                initial={{ scale: 0.92, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.92, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                src={lightboxImage}
+                alt="Visualização ampliada"
+                className="max-w-[1100px] w-full max-h-[88vh] object-contain rounded-2xl shadow-2xl shadow-black/50"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* --- DEMAIS SOLUÇÕES ESPECIALIZADAS --- */}
         <div className="mb-10 flex items-center justify-between">
