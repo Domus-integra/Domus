@@ -27,12 +27,19 @@ import {
   Linkedin,
   Facebook,
   ChevronRight,
+  ChevronLeft,
   Network,
   MapPin,
   Wrench,
   PhoneCall,
   Headset,
-  Play
+  Play,
+  KeyRound,
+  Fingerprint,
+  Layers,
+  Volume2,
+  Camera,
+  ZoomIn
 } from 'lucide-react';
 
 // --- Types ---
@@ -230,36 +237,76 @@ const Hero = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+    <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+      {/* Ambient Background Glows */}
+      <div className="absolute top-20 -left-32 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="w-full lg:w-1/2 text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs font-bold uppercase tracking-wider mb-6">
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                Líder em Automação Residencial
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                Líder em Automação Residencial & Projetos Integrados
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
-                Seu Lar, Mais <span className="text-blue-400 underline decoration-blue-500/50 decoration-8 underline-offset-4">Inteligente</span> do que nunca
+                Seu Lar, Mais <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 underline decoration-blue-500/50 decoration-8 underline-offset-4">Inteligente</span> do que nunca
               </h1>
-              <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+              <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-6">
                 Transformamos casas em experiências tecnológicas integradas. Do controle de voz à segurança avançada, criamos o ambiente perfeito para seu estilo de vida.
               </p>
+
+              {/* Quick Interactive Highlights for Top Services */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-8 max-w-xl">
+                <a 
+                  href="#destaque-fechaduras"
+                  className="group flex-1 flex items-center gap-3 p-3 rounded-2xl bg-gradient-to-r from-blue-950/70 to-surface border border-blue-500/30 hover:border-blue-400 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-950/30"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center shrink-0 text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                    <KeyRound size={20} />
+                  </div>
+                  <div className="text-left">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300">Em Alta</span>
+                      <span className="text-xs font-bold text-white group-hover:text-blue-300 transition-colors">Fechaduras Eletrônicas</span>
+                    </div>
+                    <p className="text-[11px] text-slate-400 mt-0.5">Venda e instalação especializada</p>
+                  </div>
+                </a>
+
+                <a 
+                  href="#destaque-projetos"
+                  className="group flex-1 flex items-center gap-3 p-3 rounded-2xl bg-gradient-to-r from-indigo-950/60 to-surface border border-white/15 hover:border-blue-400/60 transition-all hover:-translate-y-0.5 shadow-lg shadow-black/20"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center shrink-0 text-indigo-300 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                    <Layers size={20} />
+                  </div>
+                  <div className="text-left">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300">360°</span>
+                      <span className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">Projetos Completos</span>
+                    </div>
+                    <p className="text-[11px] text-slate-400 mt-0.5">Automação, Som, CFTV e Cinema</p>
+                  </div>
+                </a>
+              </div>
+
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <a href="#contact" className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-accent transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/30">
+                <a href="#contact" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-4 rounded-full font-bold transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(37,99,235,0.4)] border border-white/15">
                   Solicitar Orçamento
                   <ArrowRight size={18} />
                 </a>
-                <a href="#services" className="w-full sm:w-auto bg-surface text-white border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-surface-light transition-all flex items-center justify-center gap-2">
+                <a href="#services" className="w-full sm:w-auto bg-white/5 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-white/10 hover:border-white/40 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
                   Ver Serviços
                 </a>
               </div>
               
-              <div className="mt-12 flex items-center gap-8 border-t border-white/10 pt-8">
+              <div className="mt-10 flex items-center gap-6 sm:gap-8 border-t border-white/10 pt-8">
                 <div>
                   <div className="text-2xl font-bold text-white">150+</div>
                   <div className="text-sm text-slate-400">Projetos Entregues</div>
@@ -270,10 +317,17 @@ const Hero = () => {
                   <div className="text-sm text-slate-400">Anos de Mercado</div>
                 </div>
                 <div className="w-px h-10 bg-white/20" />
-                                  <div>
-                    <div className="text-2xl font-bold text-white flex items-center gap-1">4.9 <Star className="fill-yellow-500 text-yellow-500 w-5 h-5 ml-1" /></div>
-                    <div className="text-sm text-slate-400">27 Avaliações Google</div>
+                <a 
+                  href="https://share.google/i79S59xFW1yoJWWqn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  <div className="text-2xl font-bold text-white flex items-center gap-1 group-hover:text-yellow-400 transition-colors">
+                    4.9 <Star className="fill-yellow-500 text-yellow-500 w-5 h-5 ml-1 group-hover:scale-110 transition-transform" />
                   </div>
+                  <div className="text-sm text-slate-400 group-hover:text-slate-200 underline decoration-white/20 underline-offset-4 transition-colors">27 Avaliações Google</div>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -287,7 +341,7 @@ const Hero = () => {
             >
               <div className="flex flex-col gap-4 sm:gap-6 mt-8 lg:mt-0 relative z-20">
                  {/* Sponsorships & Projects Section */}
-                 <div className="bg-surface/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-xl border border-white/10 flex flex-col gap-4 relative overflow-hidden">
+                 <div className="bg-surface/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-2xl border border-white/15 hover:border-blue-500/40 transition-colors flex flex-col gap-4 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-accent to-purple-500" />
                     
                     {/* Headers */}
@@ -305,20 +359,28 @@ const Hero = () => {
 
                     {/* Images */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                       <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
+                       <a href="#events" className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 hover:border-blue-400/50 shadow-lg relative h-[160px] sm:h-[220px] group block">
                           <img src="/casacor-fachada.jpg" alt="Casacor Fachada" loading="eager" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                       </div>
-                       <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-lg relative h-[160px] sm:h-[220px] group">
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity pointer-events-none" />
+                          <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white">
+                            <span className="text-[11px] font-bold tracking-wider uppercase">CASACOR</span>
+                            <span className="text-[10px] bg-blue-600/90 px-2 py-0.5 rounded-full font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Ver fotos →</span>
+                          </div>
+                       </a>
+                       <a href="#events" className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 hover:border-blue-400/50 shadow-lg relative h-[160px] sm:h-[220px] group block">
                           <img src="/mostraglass-mapa.jpg" alt="Mostraglass Planta" loading="eager" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                       </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity pointer-events-none" />
+                          <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white">
+                            <span className="text-[11px] font-bold tracking-wider uppercase">MOSTRAGLASS</span>
+                            <span className="text-[10px] bg-blue-600/90 px-2 py-0.5 rounded-full font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Conferir →</span>
+                          </div>
+                       </a>
                     </div>
                  </div>
 
                  {/* Testimonial Section */}
                  <div 
-                    className="bg-gradient-to-r from-surface to-surface-light p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 flex items-center gap-4 cursor-pointer hover:border-white/30 transition-all group"
+                    className="bg-gradient-to-r from-surface to-surface-light p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 flex items-center gap-4 cursor-pointer hover:border-blue-400/50 hover:shadow-blue-900/20 hover:shadow-2xl transition-all group"
                     onClick={() => setActiveVideo('https://www.youtube.com/embed/mVCsF-H9ViM')}
                  >
                     <div className="relative w-[70px] h-[124px] sm:w-[90px] sm:h-[160px] rounded-xl overflow-hidden shrink-0 bg-slate-900 shadow-inner">
@@ -330,7 +392,7 @@ const Hero = () => {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                        />
                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-                          <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shadow-[0_0_15px_rgba(8,21,136,0.6)] group-hover:scale-110 transition-transform">
+                          <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.8)] group-hover:scale-110 transition-transform">
                              <Play size={18} className="text-white fill-white ml-0.5" />
                           </div>
                        </div>
@@ -339,10 +401,10 @@ const Hero = () => {
                     <div className="flex-1">
                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 mb-2 sm:mb-3">
                           <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                          <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Depoimento</span>
+                          <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Depoimento em Vídeo</span>
                        </div>
                        
-                       <h4 className="text-lg sm:text-xl font-bold text-white mb-1">Tinta La Vida POA</h4>
+                       <h4 className="text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">Tinta La Vida POA</h4>
                        
                        <div className="flex items-center gap-2 text-yellow-400 mb-2">
                           <div className="flex">
@@ -404,23 +466,311 @@ const Hero = () => {
   );
 };
 
+const lockFeatures = [
+  {
+    id: 'biometria',
+    label: 'Biometria & Facial 3D',
+    desc: 'Destrave a porta em menos de 0,5s com leitura digital de alta precisão ou reconhecimento facial 3D mesmo no escuro.'
+  },
+  {
+    id: 'app',
+    label: 'Acesso Remoto via App',
+    desc: 'Abra a porta de onde estiver pelo celular, receba notificações de quem entrou e crie senhas com horário programado para visitas.'
+  },
+  {
+    id: 'instalacao',
+    label: 'Instalação Especializada',
+    desc: 'Equipe técnica própria para instalação limpa e precisa em portas de madeira, pivotantes ou vidro, com configuração completa.'
+  }
+];
+
+const fullProjectPillars = [
+  {
+    id: 'automacao',
+    label: 'Automação Total',
+    title: 'Iluminação, Persianas & Clima',
+    desc: 'Cenas personalizadas por toque ou comando de voz. Integração completa desde a planta junto ao seu arquiteto.',
+    image: '/Automacao-app.jpg'
+  },
+  {
+    id: 'som',
+    label: 'Som Ambiente',
+    title: 'Áudio Multiroom de Alta Fidelidade',
+    desc: 'Caixas acústicas embutidas no gesso de forma discreta para sonorizar área gourmet, living, suítes e área externa.',
+    image: '/Caixa1.jpg'
+  },
+  {
+    id: 'cinema',
+    label: 'Home Cinema',
+    title: 'Sala de Cinema Dedicada em Casa',
+    desc: 'Projetores 4K, telões motorizados e som surround calibrado profissionalmente para uma imersão de cinema.',
+    image: '/Home-Cinema.jpg'
+  },
+  {
+    id: 'cftv',
+    label: 'CFTV & Segurança',
+    title: 'Monitoramento Inteligente 4K',
+    desc: 'Câmeras de alta definição, analíticos de segurança, alarme e controle de acesso integrados em um só aplicativo.',
+    image: '/camera.jpg?v=2'
+  }
+];
+
 const ServiceSection = () => {
+  const [activeLockFeature, setActiveLockFeature] = useState(0);
+  const [activePillar, setActivePillar] = useState(0);
+
+  const trackConversion = () => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
+    }
+  };
+
   return (
-    <section id="services" className="py-24 bg-surface scroll-mt-20 perf-section">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 bg-surface scroll-mt-20 perf-section relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-40 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-40 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.4 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">O Que Fazemos</h2>
-          <h3 className="text-4xl font-bold text-white mb-6">Soluções Premium para Cada Necessidade</h3>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">
+            <Sparkles size={14} /> O Que Fazemos
+          </div>
+          <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Soluções Premium para Cada Necessidade</h3>
           <p className="text-lg text-slate-300">
-            Oferecemos uma linha completa de serviços projetados para levar máximo conforto e sofisticação até você.
+            Dos nossos serviços mais procurados do momento até projetos personalizados de ponta a ponta para sua residência ou empresa.
           </p>
         </motion.div>
+
+        {/* --- DESTAQUES PRINCIPAIS (FECHADURA ELETRÔNICA & PROJETOS GRANDES) --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Card 1: Fechaduras Eletrônicas */}
+          <motion.div
+            id="destaque-fechaduras"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.4 }}
+            className="group bg-gradient-to-b from-surface-light to-surface rounded-3xl overflow-hidden border-2 border-blue-500/40 hover:border-blue-400 shadow-2xl shadow-blue-950/40 flex flex-col justify-between relative scroll-mt-28 transition-all"
+          >
+            <div>
+              <div className="relative h-64 sm:h-72 overflow-hidden">
+                <img
+                  src="/fechadura-eletronica.jpg"
+                  alt="Fechadura Eletrônica Inteligente Domus Íntegra"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
+                
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-blue-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-blue-600/40">
+                  <KeyRound size={14} /> Principal • Campeão de Instalações
+                </div>
+
+                <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-widest text-blue-300 block mb-1">Segurança & Praticidade</span>
+                    <h4 className="text-2xl sm:text-3xl font-bold text-white">Fechaduras Eletrônicas</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 pt-4">
+                <p className="text-slate-300 mb-6 leading-relaxed">
+                  Esqueça as chaves! Trabalhamos com a venda e instalação especializada das melhores fechaduras digitais, biométricas e faciais do mercado, integradas ao seu smartphone.
+                </p>
+
+                {/* Interactive Feature Selector */}
+                <div className="bg-app-bg/60 p-4 rounded-2xl border border-white/10 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {lockFeatures.map((feat, idx) => (
+                      <button
+                        key={feat.id}
+                        type="button"
+                        onClick={() => setActiveLockFeature(idx)}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                          activeLockFeature === idx
+                            ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                            : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
+                        }`}
+                      >
+                        {feat.label}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-300 min-h-[2.5rem] leading-relaxed">
+                    {lockFeatures[activeLockFeature].desc}
+                  </p>
+                </div>
+
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
+                    Biometria, Facial 3D, Senha e Tag
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
+                    Senhas temporárias (Visitas / Airbnb)
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
+                    Travamento automático ao fechar
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
+                    Instalação limpa sem danificar a porta
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="px-6 sm:px-8 pb-8 pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <a
+                href="https://wa.me/5551991308627?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Fechadura%20Eletr%C3%B4nica."
+                target="_blank"
+                rel="noreferrer"
+                onClick={trackConversion}
+                className="w-full sm:flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all hover:-translate-y-0.5 text-sm"
+              >
+                <MessageCircle size={18} />
+                Orçar Fechadura no WhatsApp
+              </a>
+              <a
+                href="#contact"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
+              >
+                Formulário <ChevronRight size={16} />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Projetos Grandes & Integrados */}
+          <motion.div
+            id="destaque-projetos"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="group bg-gradient-to-b from-surface-light to-surface rounded-3xl overflow-hidden border-2 border-indigo-500/40 hover:border-indigo-400 shadow-2xl shadow-indigo-950/40 flex flex-col justify-between relative scroll-mt-28 transition-all"
+          >
+            <div>
+              <div className="relative h-64 sm:h-72 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={fullProjectPillars[activePillar].image}
+                    initial={{ opacity: 0.4, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0.4 }}
+                    transition={{ duration: 0.35 }}
+                    src={fullProjectPillars[activePillar].image}
+                    alt={fullProjectPillars[activePillar].title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/35 to-transparent" />
+
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-indigo-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-indigo-600/40">
+                  <Layers size={14} /> Solução 360° • Alto Padrão
+                </div>
+
+                <div className="absolute bottom-4 left-6 right-6">
+                  <span className="text-xs font-bold uppercase tracking-widest text-indigo-300 block mb-1">Residencial & Comercial</span>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white">Projetos Completos Integrados</h4>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 pt-4">
+                <p className="text-slate-300 mb-6 leading-relaxed">
+                  Executamos projetos inteiros de ponta a ponta — unindo <strong>Automação, Som Ambiente, CFTV e Home Cinema</strong> em um único ecossistema inteligente, sem dor de cabeça com múltiplos fornecedores.
+                </p>
+
+                {/* Interactive 4-Pillar Explorer */}
+                <div className="bg-app-bg/60 p-4 rounded-2xl border border-white/10 mb-6">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center justify-between">
+                    <span>Clique para explorar os 4 pilares do projeto:</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+                    {fullProjectPillars.map((pillar, idx) => (
+                      <button
+                        key={pillar.id}
+                        type="button"
+                        onClick={() => setActivePillar(idx)}
+                        className={`px-2.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
+                          activePillar === idx
+                            ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                            : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
+                        }`}
+                      >
+                        {pillar.label}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="min-h-[3.25rem]">
+                    <div className="text-xs font-bold text-indigo-300 mb-0.5">{fullProjectPillars[activePillar].title}</div>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {fullProjectPillars[activePillar].desc}
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-indigo-400 shrink-0" />
+                    Acompanhamento com arquitetos e obra
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-indigo-400 shrink-0" />
+                    Infraestrutura, cabeamento e Wi-Fi 6
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-indigo-400 shrink-0" />
+                    Tudo controlado em 1 único painel/App
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-indigo-400 shrink-0" />
+                    Garantia e suporte pós-obra dedicado
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="px-6 sm:px-8 pb-8 pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <a
+                href="https://wa.me/5551991308627?text=Ol%C3%A1!%20Tenho%20interesse%20em%20um%20Projeto%20Completo%20Integrado%20(Automa%C3%A7%C3%A3o%2C%20Som%2C%20CFTV%20e%20Home%20Cinema)."
+                target="_blank"
+                rel="noreferrer"
+                onClick={trackConversion}
+                className="w-full sm:flex-1 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25 transition-all hover:-translate-y-0.5 text-sm"
+              >
+                <MessageCircle size={18} />
+                Planejar Projeto Completo
+              </a>
+              <a
+                href="#contact"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
+              >
+                Consultoria <ChevronRight size={16} />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* --- DEMAIS SOLUÇÕES ESPECIALIZADAS --- */}
+        <div className="mb-10 flex items-center justify-between">
+          <div>
+            <h4 className="text-xl sm:text-2xl font-bold text-white">Todas as Nossas Especialidades</h4>
+            <p className="text-sm text-slate-400">Contrate soluções individuais ou combine-as no seu projeto</p>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -430,16 +780,16 @@ const ServiceSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.35, delay: Math.min(index * 0.05, 0.3) }}
-              className={`group bg-surface rounded-3xl overflow-hidden border transition-all duration-300 relative ${
+              className={`group bg-surface rounded-3xl overflow-hidden border transition-all duration-300 relative hover:-translate-y-1 ${
                 index === 0 
-                  ? 'border-accent shadow-2xl shadow-accent/20 md:col-span-2 lg:col-span-3 lg:flex' 
-                  : 'border-white/10 hover:shadow-2xl hover:shadow-primary/10'
+                  ? 'border-accent/80 hover:border-blue-400 shadow-2xl shadow-accent/20 md:col-span-2 lg:col-span-3 lg:flex' 
+                  : 'border-white/10 hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-950/30'
               }`}
               id={`service-card-${service.id}`}
             >
               {index === 0 && (
                 <div className="absolute top-4 right-4 z-10 bg-accent text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
-                  Destaque
+                  Tecnologia Exclusiva
                 </div>
               )}
               <div className={`relative overflow-hidden ${index === 0 ? 'lg:w-1/2 h-64 lg:h-auto' : 'h-56'}`}>
@@ -451,14 +801,14 @@ const ServiceSection = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform [backface-visibility:hidden] [transform:translateZ(0)]"
                   referrerPolicy="no-referrer"
                 />
-                <div className={`absolute top-4 left-4 p-3 bg-surface/90 backdrop-blur-sm rounded-2xl shadow-lg ${index === 0 && 'z-10'}`}>
-                  <div className="text-blue-400">
+                <div className={`absolute top-4 left-4 p-3 bg-surface/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10 ${index === 0 && 'z-10'}`}>
+                  <div className="text-blue-400 group-hover:scale-110 transition-transform">
                     {service.icon}
                   </div>
                 </div>
               </div>
               <div className={`p-8 ${index === 0 ? 'lg:w-1/2 flex flex-col justify-center' : ''}`}>
-                <h4 className={`font-bold text-white mb-4 ${index === 0 ? 'text-2xl lg:text-3xl' : 'text-xl'}`}>{service.title}</h4>
+                <h4 className={`font-bold text-white mb-4 group-hover:text-blue-300 transition-colors ${index === 0 ? 'text-2xl lg:text-3xl' : 'text-xl'}`}>{service.title}</h4>
                 <p className={`text-slate-300 mb-6 ${index === 0 ? '' : 'line-clamp-2'}`}>
                   {service.description}
                 </p>
@@ -470,8 +820,8 @@ const ServiceSection = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" className={`flex items-center gap-2 text-blue-400 font-bold text-sm hover:gap-3 transition-all underline underline-offset-4 decoration-blue-500/30 ${index === 0 ? 'mt-auto' : ''}`}>
-                  Saiba mais <ChevronRight size={16} />
+                <a href="#contact" className={`inline-flex items-center gap-2 text-blue-400 font-bold text-sm hover:text-blue-300 hover:gap-3 transition-all underline underline-offset-4 decoration-blue-500/30 ${index === 0 ? 'mt-auto' : ''}`}>
+                  Solicitar orçamento <ChevronRight size={16} />
                 </a>
               </div>
             </motion.div>
@@ -653,7 +1003,9 @@ const WarrantySection = () => {
 
 const EventsSection = () => {
   const [activeTab, setActiveTab] = useState<'casacor' | 'mostraglass'>('casacor');
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const casacorImages = [1, 2, 3, 4].map((i) => `/casacor-foto-${i}.jpg`);
 
   return (
     <section id="events" className="py-24 bg-surface-dark border-t border-white/10 relative overflow-hidden perf-section scroll-mt-20">
@@ -665,33 +1017,45 @@ const EventsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <div className="relative inline-block mb-6">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-20" />
-              <h2 className="relative text-3xl md:text-5xl font-brand font-black text-white tracking-tight uppercase">
-                Nossa Presença em <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-600 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]">Grandes Eventos</span>
-              </h2>
-            </div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-20" />
+            <h2 className="relative text-3xl md:text-5xl font-brand font-black text-white tracking-tight uppercase">
+              Nossa Presença em <br className="sm:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-600 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]">Grandes Eventos</span>
+            </h2>
+          </div>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
             A excelência da Domus Íntegra validada nos principais eventos de arquitetura e design do país.
           </p>
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-surface p-1.5 rounded-2xl flex gap-2 border border-white/10">
+        <div className="flex justify-center mb-14 relative">
+          <div className="absolute inset-0 bg-blue-500/10 blur-[40px] rounded-full max-w-[400px] mx-auto pointer-events-none" />
+          <div className="bg-[#0f1225]/80 backdrop-blur-xl p-2 rounded-[2rem] flex flex-col sm:flex-row gap-2 border border-white/15 shadow-2xl relative z-10">
             <button
               onClick={() => setActiveTab('casacor')}
-              className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${activeTab === 'casacor' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              className={`relative flex items-center justify-center gap-3 px-8 py-4 rounded-3xl font-bold text-sm transition-all duration-300 overflow-hidden group cursor-pointer ${activeTab === 'casacor' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
             >
-              CASACOR
+              {activeTab === 'casacor' && (
+                <motion.div layoutId="eventsTabIndicator" className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] border border-white/20 rounded-3xl" />
+              )}
+              <Crown size={20} className={`relative z-10 ${activeTab === 'casacor' ? 'text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]' : 'text-slate-500 group-hover:text-yellow-400 transition-colors'}`} />
+              <span className="relative z-10 tracking-[0.18em]">CASACOR</span>
             </button>
             <button
               onClick={() => setActiveTab('mostraglass')}
-              className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${activeTab === 'mostraglass' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              className={`relative flex items-center justify-center gap-3 px-8 py-4 rounded-3xl font-bold text-sm transition-all duration-300 overflow-hidden group cursor-pointer ${activeTab === 'mostraglass' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
             >
-              MOSTRAGLASS (Em breve)
+              {activeTab === 'mostraglass' && (
+                <motion.div layoutId="eventsTabIndicator" className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] border border-white/20 rounded-3xl" />
+              )}
+              <Sparkles size={20} className={`relative z-10 ${activeTab === 'mostraglass' ? 'text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.6)]' : 'text-slate-500 group-hover:text-blue-300 transition-colors'}`} />
+              <div className="relative z-10 flex items-center gap-2">
+                <span className="tracking-[0.18em]">MOSTRAGLASS</span>
+                <span className={`text-[9px] uppercase px-2 py-0.5 rounded-full border ${activeTab === 'mostraglass' ? 'bg-white/20 border-white/30 text-white' : 'bg-white/5 border-white/10 text-slate-400 group-hover:text-white'}`}>Em breve</span>
+              </div>
             </button>
           </div>
         </div>
@@ -710,7 +1074,7 @@ const EventsSection = () => {
               >
                 {/* Placeholder for CASACOR Video/Main Image */}
                 <div className="aspect-video bg-surface rounded-2xl border border-dashed border-white/20 flex flex-col items-center justify-center text-slate-500 overflow-hidden relative group">
-                   <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 z-10 relative">
+                   <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 z-10 relative group-hover:scale-110 transition-transform">
                      <Play size={32} className="text-blue-400" />
                    </div>
                    <h3 className="text-2xl font-bold text-white mb-2 z-10 relative">Aguarde...</h3>
@@ -719,14 +1083,18 @@ const EventsSection = () => {
                 
                 {/* Grid of images */}
                 <div className="grid grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((i) => (
+                  {[1, 2, 3, 4].map((i, idx) => (
                     <div 
                       key={i} 
-                      className="bg-surface rounded-xl border border-white/10 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group cursor-pointer"
-                      onClick={() => setSelectedImage(`/casacor-foto-${i}.jpg`)}
+                      className="bg-surface rounded-xl border border-white/15 hover:border-blue-400/60 flex flex-col items-center justify-center text-slate-500 aspect-square overflow-hidden relative group cursor-pointer shadow-lg transition-all"
+                      onClick={() => setSelectedImageIndex(idx)}
                     >
                       <img src={`/casacor-foto-${i}.jpg`} alt={`Casacor foto ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-white/20 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all pointer-events-none">
+                        <ZoomIn size={14} className="text-blue-400" />
+                        <span>Ampliar</span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -759,30 +1127,55 @@ const EventsSection = () => {
       </div>
 
       <AnimatePresence>
-        {selectedImage && (
+        {selectedImageIndex !== null && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedImageIndex(null)}
           >
             <button 
-              className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-all z-[210]"
-              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-all z-[210] cursor-pointer"
+              onClick={() => setSelectedImageIndex(null)}
+              aria-label="Fechar"
             >
               <X size={24} />
             </button>
+
+            <button
+              className="absolute left-4 sm:left-8 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-all z-[210] cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImageIndex((selectedImageIndex - 1 + casacorImages.length) % casacorImages.length);
+              }}
+              aria-label="Foto anterior"
+            >
+              <ChevronLeft size={26} />
+            </button>
+
             <motion.img 
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              key={selectedImageIndex}
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              src={selectedImage} 
+              src={casacorImages[selectedImageIndex]} 
               alt="Casacor ampliada" 
-              className="max-w-[1200px] w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl shadow-black/50"
+              className="max-w-[1100px] w-full max-h-[88vh] object-contain rounded-2xl shadow-2xl shadow-black/50"
               onClick={(e) => e.stopPropagation()}
             />
+
+            <button
+              className="absolute right-4 sm:right-8 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-all z-[210] cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImageIndex((selectedImageIndex + 1) % casacorImages.length);
+              }}
+              aria-label="Próxima foto"
+            >
+              <ChevronRight size={26} />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -862,13 +1255,22 @@ const TestimonialsSection = () => {
   );
 };
 
+const quickSubjects = [
+  'Fechadura Eletrônica',
+  'Projeto Completo (Automação + Som + CFTV + Cinema)',
+  'Automação & Iluminação',
+  'Home Cinema & Som Ambiente',
+  'CFTV & Segurança'
+];
+
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', city: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', city: '', subject: 'Fechadura Eletrônica', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const message = `Olá! Meu nome é ${formData.name}.
+Interesse Principal: ${formData.subject}
 Email: ${formData.email || 'Não informado'}
 Telefone: ${formData.phone}
 Cidade: ${formData.city}
@@ -887,7 +1289,7 @@ ${formData.message}`;
     
     window.open(whatsappUrl, '_blank');
     setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', city: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', city: '', subject: 'Fechadura Eletrônica', message: '' });
   };
 
   return (
@@ -898,48 +1300,55 @@ ${formData.message}`;
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.4 }}
-          className="max-w-6xl mx-auto bg-surface-light rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-sm border border-white/10"
+          className="max-w-6xl mx-auto bg-surface-light rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-white/15"
         >
           <div className="flex flex-col lg:flex-row">
-            <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:p-20 bg-primary text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Vamos dar o próximo passo?</h2>
-              <p className="text-slate-400 mb-8 md:mb-12 text-base md:text-lg">
-                Nossa equipe está pronta para desenhar um projeto exclusivo para você. Preencha o formulário ou nos chame no WhatsApp.
-              </p>
-              
-              <div className="space-y-8">
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center shrink-0 shadow-lg shadow-primary/40">
-                    <MessageCircle className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-slate-400 text-sm font-medium mb-1">WhatsApp</div>
-                    <div className="font-bold text-lg">+55 (51) 99130-8627</div>
-                  </div>
-                </div>
+            <div className="w-full lg:w-5/12 p-6 sm:p-10 lg:p-14 bg-gradient-to-br from-primary via-[#000a52] to-surface text-white flex flex-col justify-between">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Vamos dar o próximo passo?</h2>
+                <p className="text-slate-300 mb-8 md:mb-12 text-base">
+                  Seja para instalar uma fechadura eletrônica hoje mesmo ou planejar o projeto completo da sua residência ou empresa, nossa equipe está pronta para atender você.
+                </p>
                 
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center shrink-0">
-                    <ShieldCheck className="text-blue-500" />
-                  </div>
-                  <div>
-                    <div className="text-slate-400 text-sm font-medium mb-1">Atendimento</div>
-                    <div className="font-bold text-lg">Seg - Sex: 09h às 18h</div>
+                <div className="space-y-6">
+                  <a 
+                    href="https://wa.me/5551991308627"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-5 p-3 -mx-3 rounded-2xl hover:bg-white/5 transition-colors group"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform">
+                      <MessageCircle className="text-white" />
+                    </div>
+                    <div>
+                      <div className="text-slate-400 text-xs font-medium mb-0.5">Atendimento Rápido via WhatsApp</div>
+                      <div className="font-bold text-lg group-hover:text-blue-300 transition-colors">+55 (51) 99130-8627</div>
+                    </div>
+                  </a>
+                  
+                  <div className="flex items-center gap-5">
+                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                      <ShieldCheck className="text-blue-400" />
+                    </div>
+                    <div>
+                      <div className="text-slate-400 text-xs font-medium mb-0.5">Horário de Atendimento</div>
+                      <div className="font-bold text-lg">Seg - Sex: 09h às 18h</div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-20 pt-12 border-t border-white/10 flex gap-6">
-                <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent transition-colors">
+              <div className="mt-12 pt-8 border-t border-white/10 flex gap-4">
+                <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <Instagram size={18} />
                 </a>
-                <a href="https://share.google/i79S59xFW1yoJWWqn" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent transition-colors">
+                <a href="https://share.google/i79S59xFW1yoJWWqn" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <MapPin size={18} />
                 </a>
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:p-20 bg-surface">
+            <div className="w-full lg:w-7/12 p-6 sm:p-10 lg:p-14 bg-surface">
               {submitted ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -947,22 +1356,44 @@ ${formData.message}`;
                   className="h-full flex flex-col items-center justify-center text-center"
                 >
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 size={32} className="text-green-600 sm:w-10 sm:h-10" />
+                    <CheckCircle2 size={32} className="text-green-500 sm:w-10 sm:h-10" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Mensagem Enviada!</h3>
                   <p className="text-sm sm:text-base text-slate-400 mb-8">Obrigado pelo contato. Nossa equipe retornará em breve para agendarmos sua consultoria.</p>
                   <button 
                     onClick={() => setSubmitted(false)}
-                    className="text-blue-600 font-bold hover:underline"
+                    className="text-blue-400 font-bold hover:underline"
                   >
                     Enviar outra mensagem
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                  <div>
+                    <label className="block text-sm font-bold text-slate-200 mb-2">
+                      Qual solução você procura? <span className="text-blue-400 font-normal text-xs ml-1">(Selecione um assunto)</span>
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {quickSubjects.map((item) => (
+                        <button
+                          key={item}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, subject: item })}
+                          className={`px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+                            formData.subject === item
+                              ? 'bg-blue-600 text-white border-blue-400 shadow-md shadow-blue-600/30'
+                              : 'bg-surface-light text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
+                          }`}
+                        >
+                          {item}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
+                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
                         Nome Completo <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
                       </label>
                       <input 
@@ -970,27 +1401,27 @@ ${formData.message}`;
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-p"
+                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
                         placeholder="Ex: João Silva"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
+                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
                         E-mail <span className="text-slate-400 font-normal text-xs ml-1">(Opcional)</span>
                       </label>
                       <input 
                         type="email" 
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
                         placeholder="exemplo@email.com"
                       />
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
+                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
                         WhatsApp <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
                       </label>
                       <input 
@@ -998,12 +1429,12 @@ ${formData.message}`;
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
                         placeholder="(51) 99130-8627"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
+                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
                         Cidade <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
                       </label>
                       <input 
@@ -1011,31 +1442,31 @@ ${formData.message}`;
                         required
                         value={formData.city}
                         onChange={(e) => setFormData({...formData, city: e.target.value})}
-                        className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
                         placeholder="Ex: Novo Hamburgo"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-bold text-slate-200 mb-1 sm:mb-2">
-                      Como podemos ajudar? <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                    <label className="block text-sm font-bold text-slate-200 mb-1.5">
+                      Detalhes do pedido ou projeto <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
                     </label>
                     <textarea 
-                      rows={4}
+                      rows={3}
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full px-4 py-3 sm:py-4 rounded-xl bg-surface-light border border-white/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
-                      placeholder="Descreva seu projeto ou dúvida..."
+                      className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all resize-none text-white"
+                      placeholder="Conte-nos brevemente sobre a porta para fechadura ou os ambientes do seu projeto..."
                     ></textarea>
                   </div>
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-primary text-white font-bold py-4 sm:py-5 rounded-2xl hover:bg-accent transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 text-sm sm:text-base"
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-3 text-sm sm:text-base cursor-pointer hover:-translate-y-0.5"
                   >
-                    Enviar Mensagem
+                    Solicitar Atendimento no WhatsApp
                     <ArrowRight size={18} />
                   </button>
                   
@@ -1099,10 +1530,11 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Serviços</h4>
             <ul className="space-y-4">
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Home Cinema</a></li>
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Iluminação</a></li>
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Segurança</a></li>
-              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Redes Wi-Fi</a></li>
+              <li><a href="#destaque-fechaduras" className="text-sm text-slate-400 hover:text-blue-500">Fechaduras Eletrônicas</a></li>
+              <li><a href="#destaque-projetos" className="text-sm text-slate-400 hover:text-blue-500">Projetos Completos 360°</a></li>
+              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Home Cinema & Som</a></li>
+              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Automação & Iluminação</a></li>
+              <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">CFTV & Segurança</a></li>
             </ul>
           </div>
           
@@ -1123,7 +1555,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/20 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <div>© 2024 Domus Íntegra Automação. Todos os direitos reservados.</div>
+          <div>© 2026 Domus Íntegra Automação. Todos os direitos reservados.</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-blue-600">Política de Privacidade</a>
             <a href="#" className="hover:text-blue-600">Termos de Uso</a>
@@ -1135,6 +1567,19 @@ const Footer = () => {
 };
 
 // --- Main App ---
+
+const partnerBrands = [
+  'Tuya',
+  'Harman Kardon',
+  'Denon',
+  'Uniview',
+  'Compatec',
+  'Onkyo',
+  'Panasonic',
+  'Formovie',
+  'Intelbras',
+  'JBL'
+];
 
 export default function App() {
   return (
@@ -1154,19 +1599,22 @@ export default function App() {
         <AboutSection />
         <WarrantySection />
 
-        {/* Partners Banner (Subtle) */}
-        <section className="bg-surface py-12 border-y border-white/10 overflow-hidden whitespace-nowrap">
-          <div className="container mx-auto px-4">
-             <div className="flex items-center justify-center gap-12 opacity-30 grayscale hover:grayscale-0 transition-all cursor-default overflow-x-auto pb-4 hide-scrollbar">
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Tuya</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Harman Kardon</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Denon</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Uniview</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Compatec</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Onkyo</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Panasonic</span>
-                <span className="text-2xl font-black italic tracking-tighter uppercase">Formovie</span>
-             </div>
+        {/* Partners Banner (Animated Marquee) */}
+        <section className="bg-surface py-12 border-y border-white/10 overflow-hidden relative">
+          <div className="text-center mb-6">
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400">Marcas e Tecnologias Parceiras</span>
+          </div>
+          <div className="relative flex overflow-hidden">
+            <div className="animate-marquee flex items-center gap-10 sm:gap-16 px-6">
+              {[...partnerBrands, ...partnerBrands].map((brand, idx) => (
+                <span
+                  key={idx}
+                  className="text-xl sm:text-2xl font-black italic tracking-tighter uppercase text-slate-500 hover:text-blue-400 transition-colors cursor-default select-none"
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
         
