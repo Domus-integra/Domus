@@ -22,25 +22,42 @@ import {
   Star, 
   CheckCircle2, 
   Clock, 
-  Users, 
   Instagram,
-  Linkedin,
-  Facebook,
   ChevronRight,
   ChevronLeft,
   Network,
   MapPin,
   Wrench,
-  PhoneCall,
   Headset,
   Play,
   KeyRound,
-  Fingerprint,
   Layers,
-  Volume2,
-  Camera,
   ZoomIn
 } from 'lucide-react';
+
+// --- Security & Conversion Helpers ---
+const WHATSAPP_NUMBER = '5551991308627';
+
+const sanitizeText = (input: string, maxLength = 300): string => {
+  return input
+    .replace(/[\u0000-\u001F\u007F<>]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+};
+
+const getWhatsAppUrl = (message: string): string => {
+  const safeMessage = encodeURIComponent(message.trim().slice(0, 1000));
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${safeMessage}`;
+};
+
+const trackConversion = () => {
+  if (typeof window !== 'undefined' && typeof (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag === 'function') {
+    (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
+      send_to: 'AW-18068043692/4qBBCI-Z45YcEKzvwadD'
+    });
+  }
+};
 
 // --- Types ---
 interface Service {
@@ -171,14 +188,10 @@ const Navbar = () => {
             <a href="#about" className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors">Sobre Nós</a>
             <div className="h-4 w-px bg-white/20" />
             <a 
-              href="https://wa.me/5551991308627" 
+              href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de atendimento.')}
               target="_blank" 
-              rel="noreferrer"
-              onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).gtag) {
-                  (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
-                }
-              }}
+              rel="noopener noreferrer"
+              onClick={trackConversion}
               className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent transition-all shadow-md shadow-primary/20"
             >
               <MessageCircle size={18} />
@@ -191,6 +204,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-blue-600 hover:bg-surface-light"
               id="mobile-menu-button"
+              aria-label="Abrir menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -212,14 +226,10 @@ const Navbar = () => {
               <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Serviços</a>
               <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-base font-medium text-slate-200 hover:bg-surface-light rounded-lg">Sobre Nós</a>
               <a 
-                href="https://wa.me/5551991308627" 
+                href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de atendimento.')}
                 target="_blank" 
-                rel="noreferrer"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).gtag) {
-                    (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
-                  }
-                }}
+                rel="noopener noreferrer"
+                onClick={trackConversion}
                 className="mt-4 flex items-center justify-center gap-2 bg-blue-600 text-white px-5 py-4 rounded-lg text-base font-semibold"
               >
                 <MessageCircle size={20} />
@@ -297,7 +307,14 @@ const Hero = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <a href="#contact" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-4 rounded-full font-bold transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(37,99,235,0.4)] border border-white/15">
+                <a 
+                  href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de solicitar um orçamento.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={trackConversion}
+                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-4 rounded-full font-bold transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(37,99,235,0.4)] border border-white/15"
+                >
+                  <MessageCircle size={18} />
                   Solicitar Orçamento
                   <ArrowRight size={18} />
                 </a>
@@ -381,7 +398,7 @@ const Hero = () => {
                  {/* Testimonial Section */}
                  <div 
                     className="bg-gradient-to-r from-surface to-surface-light p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 flex items-center gap-4 cursor-pointer hover:border-blue-400/50 hover:shadow-blue-900/20 hover:shadow-2xl transition-all group"
-                    onClick={() => setActiveVideo('https://www.youtube.com/embed/mVCsF-H9ViM')}
+                    onClick={() => setActiveVideo('https://www.youtube-nocookie.com/embed/mVCsF-H9ViM')}
                  >
                     <div className="relative w-[70px] h-[124px] sm:w-[90px] sm:h-[160px] rounded-xl overflow-hidden shrink-0 bg-slate-900 shadow-inner">
                        <img 
@@ -445,18 +462,18 @@ const Hero = () => {
               <button
                 onClick={() => setActiveVideo(null)}
                 className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors"
-                aria-label="Close"
+                aria-label="Fechar vídeo"
               >
                 <X size={20} />
               </button>
               <iframe 
                 src={`${activeVideo}?autoplay=1`}
-                title="YouTube video player" 
-                frameBorder="0" 
+                title="Depoimento Domus Íntegra" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                sandbox="allow-scripts allow-same-origin allow-presentation"
                 referrerPolicy="strict-origin-when-cross-origin" 
                 allowFullScreen
-                className="w-full h-full"
+                className="w-full h-full border-0"
               ></iframe>
             </motion.div>
           </motion.div>
@@ -525,12 +542,6 @@ const ServiceSection = () => {
   const [activeLockFeature, setActiveLockFeature] = useState(0);
   const [activePillar, setActivePillar] = useState(0);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-
-  const trackConversion = () => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
-    }
-  };
 
   return (
     <section id="services" className="py-24 bg-surface scroll-mt-20 perf-section relative overflow-hidden">
@@ -677,9 +688,9 @@ const ServiceSection = () => {
 
             <div className="px-6 sm:px-8 pb-8 pt-2 flex flex-col sm:flex-row items-center gap-3">
               <a
-                href="https://wa.me/5551991308627?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Fechadura%20Eletr%C3%B4nica."
+                href={getWhatsAppUrl('Olá! Gostaria de um orçamento para Fechadura Eletrônica.')}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 onClick={trackConversion}
                 className="w-full sm:flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all hover:-translate-y-0.5 text-sm"
               >
@@ -688,9 +699,9 @@ const ServiceSection = () => {
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
               >
-                Formulário <ChevronRight size={16} />
+                Preencher Dados <ChevronRight size={16} />
               </a>
             </div>
           </motion.div>
@@ -816,20 +827,20 @@ const ServiceSection = () => {
 
             <div className="px-6 sm:px-8 pb-8 pt-2 flex flex-col sm:flex-row items-center gap-3">
               <a
-                href="https://wa.me/5551991308627?text=Ol%C3%A1!%20Tenho%20interesse%20em%20um%20Projeto%20Completo%20Integrado%20(Automa%C3%A7%C3%A3o%2C%20Som%2C%20CFTV%20e%20Home%20Cinema)."
+                href={getWhatsAppUrl('Olá! Tenho interesse em um Projeto Completo Integrado (Automação, Som, CFTV e Home Cinema).')}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 onClick={trackConversion}
                 className="w-full sm:flex-1 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25 transition-all hover:-translate-y-0.5 text-sm"
               >
                 <MessageCircle size={18} />
-                Planejar Projeto Completo
+                Planejar Projeto no WhatsApp
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
               >
-                Consultoria <ChevronRight size={16} />
+                Preencher Dados <ChevronRight size={16} />
               </a>
             </div>
           </motion.div>
@@ -922,8 +933,15 @@ const ServiceSection = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" className={`inline-flex items-center gap-2 text-blue-400 font-bold text-sm hover:text-blue-300 hover:gap-3 transition-all underline underline-offset-4 decoration-blue-500/30 ${index === 0 ? 'mt-auto' : ''}`}>
-                  Solicitar orçamento <ChevronRight size={16} />
+                <a
+                  href={getWhatsAppUrl(`Olá! Vim pelo site da Domus Íntegra e gostaria de um orçamento para ${service.title}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={trackConversion}
+                  className={`inline-flex items-center gap-2 text-blue-400 font-bold text-sm hover:text-blue-300 hover:gap-3 transition-all underline underline-offset-4 decoration-blue-500/30 ${index === 0 ? 'mt-auto' : ''}`}
+                >
+                  <MessageCircle size={16} />
+                  Orçar no WhatsApp <ChevronRight size={16} />
                 </a>
               </div>
             </motion.div>
@@ -1359,39 +1377,71 @@ const TestimonialsSection = () => {
 
 const quickSubjects = [
   'Fechadura Eletrônica',
-  'Projeto Completo (Automação + Som + CFTV + Cinema)',
+  'Projeto Completo 360°',
   'Automação & Iluminação',
-  'Home Cinema & Som Ambiente',
+  'Home Cinema & Som',
   'CFTV & Segurança'
 ];
 
+const propertyStages = [
+  'Imóvel Pronto',
+  'Em Obra / Reforma',
+  'Na Planta',
+  'Empresa / Comercial'
+];
+
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', city: '', subject: 'Fechadura Eletrônica', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    city: '',
+    subject: 'Fechadura Eletrônica',
+    stage: 'Imóvel Pronto',
+    message: '',
+    website: '' // Honeypot anti-bot
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá! Meu nome é ${formData.name}.
-Interesse Principal: ${formData.subject}
-Email: ${formData.email || 'Não informado'}
-Telefone: ${formData.phone}
-Cidade: ${formData.city}
-Mensagem:
-${formData.message}`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/5551991308627?text=${encodedMessage}`;
-    
-    // Dispara o evento de conversão do Google Ads
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD'
-      });
+    // Anti-bot honeypot check
+    if (formData.website.trim() !== '') {
+      return;
     }
-    
-    window.open(whatsappUrl, '_blank');
+
+    const cleanName = sanitizeText(formData.name, 80);
+    const cleanCity = sanitizeText(formData.city, 60);
+    const cleanSubject = sanitizeText(formData.subject, 80);
+    const cleanStage = sanitizeText(formData.stage, 50);
+    const cleanNotes = sanitizeText(formData.message, 500);
+
+    if (!cleanName || !cleanCity) {
+      return;
+    }
+
+    const lines = [
+      `Olá! Meu nome é ${cleanName} (${cleanCity}).`,
+      `Interesse: ${cleanSubject}`,
+      `Momento do imóvel: ${cleanStage}`
+    ];
+
+    if (cleanNotes) {
+      lines.push(`Observações: ${cleanNotes}`);
+    }
+
+    const whatsappUrl = getWhatsAppUrl(lines.join('\n'));
+    trackConversion();
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', city: '', subject: 'Fechadura Eletrônica', message: '' });
+    setFormData({
+      name: '',
+      city: '',
+      subject: 'Fechadura Eletrônica',
+      stage: 'Imóvel Pronto',
+      message: '',
+      website: ''
+    });
   };
 
   return (
@@ -1405,51 +1455,63 @@ ${formData.message}`;
           className="max-w-6xl mx-auto bg-surface-light rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-white/15"
         >
           <div className="flex flex-col lg:flex-row">
+            {/* Coluna 1: Atendimento Direto Sem Formulário */}
             <div className="w-full lg:w-5/12 p-6 sm:p-10 lg:p-14 bg-gradient-to-br from-primary via-[#000a52] to-surface text-white flex flex-col justify-between">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Vamos dar o próximo passo?</h2>
-                <p className="text-slate-300 mb-8 md:mb-12 text-base">
-                  Seja para instalar uma fechadura eletrônica hoje mesmo ou planejar o projeto completo da sua residência ou empresa, nossa equipe está pronta para atender você.
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/15 border border-green-400/30 text-green-300 text-xs font-bold uppercase tracking-wider mb-5">
+                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  Resposta Rápida
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Prefere falar direto sem preencher nada?</h2>
+                <p className="text-slate-300 mb-8 text-sm sm:text-base leading-relaxed">
+                  Clique no botão abaixo para abrir nossa conversa no WhatsApp imediatamente. Caso prefira adiantar os detalhes do seu pedido, use o pré-orçamento rápido ao lado.
                 </p>
+
+                <a
+                  href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de falar com um especialista.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={trackConversion}
+                  className="w-full bg-green-500 hover:bg-green-400 text-slate-950 font-black py-4 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-[0_0_25px_rgba(34,197,94,0.35)] transition-all hover:-translate-y-0.5 mb-8 text-sm sm:text-base"
+                >
+                  <MessageCircle size={22} className="fill-slate-950" />
+                  Chamar Direto no WhatsApp
+                </a>
                 
-                <div className="space-y-6">
-                  <a 
-                    href="https://wa.me/5551991308627"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-5 p-3 -mx-3 rounded-2xl hover:bg-white/5 transition-colors group"
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform">
-                      <MessageCircle className="text-white" />
+                <div className="space-y-5 pt-6 border-t border-white/10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                      <MessageCircle size={20} className="text-blue-400" />
                     </div>
                     <div>
-                      <div className="text-slate-400 text-xs font-medium mb-0.5">Atendimento Rápido via WhatsApp</div>
-                      <div className="font-bold text-lg group-hover:text-blue-300 transition-colors">+55 (51) 99130-8627</div>
+                      <div className="text-slate-400 text-xs font-medium">WhatsApp Comercial</div>
+                      <div className="font-bold text-base">+55 (51) 99130-8627</div>
                     </div>
-                  </a>
+                  </div>
                   
-                  <div className="flex items-center gap-5">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                      <ShieldCheck className="text-blue-400" />
+                  <div className="flex items-center gap-4">
+                    <div className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                      <ShieldCheck size={20} className="text-blue-400" />
                     </div>
                     <div>
-                      <div className="text-slate-400 text-xs font-medium mb-0.5">Horário de Atendimento</div>
-                      <div className="font-bold text-lg">Seg - Sex: 09h às 18h</div>
+                      <div className="text-slate-400 text-xs font-medium">Horário de Atendimento</div>
+                      <div className="font-bold text-base">Seg - Sex: 09h às 18h</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-12 pt-8 border-t border-white/10 flex gap-4">
-                <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <div className="mt-10 pt-6 border-t border-white/10 flex gap-4">
+                <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Domus Íntegra" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <Instagram size={18} />
                 </a>
-                <a href="https://share.google/i79S59xFW1yoJWWqn" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <a href="https://share.google/i79S59xFW1yoJWWqn" target="_blank" rel="noopener noreferrer" aria-label="Avaliações Google Domus Íntegra" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <MapPin size={18} />
                 </a>
               </div>
             </div>
 
+            {/* Coluna 2: Pré-Orçamento Rápido (Opcional e Simplificado) */}
             <div className="w-full lg:w-7/12 p-6 sm:p-10 lg:p-14 bg-surface">
               {submitted ? (
                 <motion.div 
@@ -1460,20 +1522,40 @@ ${formData.message}`;
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 size={32} className="text-green-500 sm:w-10 sm:h-10" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Mensagem Enviada!</h3>
-                  <p className="text-sm sm:text-base text-slate-400 mb-8">Obrigado pelo contato. Nossa equipe retornará em breve para agendarmos sua consultoria.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Redirecionado para o WhatsApp!</h3>
+                  <p className="text-sm sm:text-base text-slate-400 mb-8">Seus dados já foram formatados na mensagem para agilizar seu atendimento.</p>
                   <button 
+                    type="button"
                     onClick={() => setSubmitted(false)}
-                    className="text-blue-400 font-bold hover:underline"
+                    className="text-blue-400 font-bold hover:underline cursor-pointer"
                   >
-                    Enviar outra mensagem
+                    Montar outro pré-orçamento
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-white">Pré-Orçamento Personalizado</h3>
+                      <p className="text-xs text-slate-400">Leva menos de 15 segundos • Envia pronto para o nosso WhatsApp</p>
+                    </div>
+                  </div>
+
+                  {/* Honeypot invisível contra robôs */}
+                  <div className="hidden" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.website}
+                      onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                    />
+                  </div>
+
                   <div>
-                    <label className="block text-sm font-bold text-slate-200 mb-2">
-                      Qual solução você procura? <span className="text-blue-400 font-normal text-xs ml-1">(Selecione um assunto)</span>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                      1. O que você busca?
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {quickSubjects.map((item) => (
@@ -1493,87 +1575,88 @@ ${formData.message}`;
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                      2. Qual o momento do imóvel?
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                      {propertyStages.map((stage) => (
+                        <button
+                          key={stage}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, stage })}
+                          className={`px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer text-center ${
+                            formData.stage === stage
+                              ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-600/30'
+                              : 'bg-surface-light text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
+                          }`}
+                        >
+                          {stage}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
-                        Nome Completo <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                      <label htmlFor="lead-name" className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                        3. Seu Nome <span className="text-blue-400 font-normal lowercase">(obrigatório)</span>
                       </label>
                       <input 
+                        id="lead-name"
                         type="text" 
                         required
+                        maxLength={80}
+                        autoComplete="name"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
+                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white text-sm"
                         placeholder="Ex: João Silva"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
-                        E-mail <span className="text-slate-400 font-normal text-xs ml-1">(Opcional)</span>
+                      <label htmlFor="lead-city" className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                        4. Sua Cidade <span className="text-blue-400 font-normal lowercase">(obrigatório)</span>
                       </label>
                       <input 
-                        type="email" 
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
-                        placeholder="exemplo@email.com"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                    <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
-                        WhatsApp <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
-                      </label>
-                      <input 
-                        type="tel" 
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
-                        placeholder="(51) 99130-8627"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-slate-200 mb-1.5">
-                        Cidade <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
-                      </label>
-                      <input 
+                        id="lead-city"
                         type="text" 
                         required
+                        maxLength={60}
+                        autoComplete="address-level2"
                         value={formData.city}
                         onChange={(e) => setFormData({...formData, city: e.target.value})}
-                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white"
-                        placeholder="Ex: Novo Hamburgo"
+                        className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white text-sm"
+                        placeholder="Ex: Porto Alegre / Novo Hamburgo"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-bold text-slate-200 mb-1.5">
-                      Detalhes do pedido ou projeto <span className="text-slate-400 font-normal text-xs ml-1">(Obrigatório)</span>
+                    <label htmlFor="lead-notes" className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                      Algum detalhe extra? <span className="text-slate-400 font-normal lowercase">(opcional)</span>
                     </label>
-                    <textarea 
-                      rows={3}
-                      required
+                    <input 
+                      id="lead-notes"
+                      type="text"
+                      maxLength={500}
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all resize-none text-white"
-                      placeholder="Conte-nos brevemente sobre a porta para fechadura ou os ambientes do seu projeto..."
-                    ></textarea>
+                      className="w-full px-4 py-3.5 rounded-xl bg-surface-light border border-white/15 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-white text-sm"
+                      placeholder="Ex: Porta pivotante de madeira, ou 3 ambientes de som..."
+                    />
                   </div>
                   
                   <button 
                     type="submit" 
                     className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-3 text-sm sm:text-base cursor-pointer hover:-translate-y-0.5"
                   >
-                    Solicitar Atendimento no WhatsApp
+                    Enviar Pré-Orçamento para o WhatsApp
                     <ArrowRight size={18} />
                   </button>
                   
-                  <p className="text-[10px] text-center text-slate-400 px-8 uppercase tracking-widest leading-relaxed">
-                    Ao clicar, você concorda com nossos termos de privacidade e autoriza o contato de nossos especialistas.
+                  <p className="text-[10px] text-center text-slate-400 px-4 uppercase tracking-widest leading-relaxed">
+                    Seus dados não ficam armazenados em banco público — vão direto para o nosso WhatsApp oficial.
                   </p>
                 </form>
               )}
@@ -1584,17 +1667,6 @@ ${formData.message}`;
     </section>
   );
 };
-
-const Awards = ({ className }: {className?: string}) => (
-  <div className={className}>
-    <div className="flex gap-2 mb-2">
-      <Award size={20} className="text-yellow-500" />
-      <Award size={20} className="text-yellow-500" />
-      <Award size={20} className="text-yellow-500" />
-    </div>
-    <div className="text-xs font-bold uppercase tracking-widest text-slate-400">Award Winning Company</div>
-  </div>
-);
 
 const Footer = () => {
   return (
@@ -1610,10 +1682,10 @@ const Footer = () => {
               Líder em soluções de automação residencial de luxo no Brasil. Qualidade, sofisticação e tecnologia de ponta para o seu lar.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-surface border border-white/20 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+              <a href="https://www.instagram.com/domus_integra/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 rounded-full bg-surface border border-white/20 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
                 <Instagram size={14} />
               </a>
-              <a href="https://share.google/i79S59xFW1yoJWWqn" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-surface border border-white/20 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+              <a href="https://share.google/i79S59xFW1yoJWWqn" target="_blank" rel="noopener noreferrer" aria-label="Localização e Avaliações no Google" className="w-8 h-8 rounded-full bg-surface border border-white/20 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
                 <MapPin size={14} />
               </a>
             </div>
@@ -1622,10 +1694,21 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Navegação</h4>
             <ul className="space-y-4">
+              <li><a href="#events" className="text-sm text-slate-400 hover:text-blue-500">Grandes Eventos</a></li>
               <li><a href="#services" className="text-sm text-slate-400 hover:text-blue-500">Serviços</a></li>
               <li><a href="#about" className="text-sm text-slate-400 hover:text-blue-500">Sobre Nós</a></li>
               <li><a href="#testimonials" className="text-sm text-slate-400 hover:text-blue-500">Depoimentos</a></li>
-              <li><a href="#contact" className="text-sm text-slate-400 hover:text-blue-500">Contatos</a></li>
+              <li>
+                <a 
+                  href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de atendimento.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={trackConversion}
+                  className="text-sm text-slate-400 hover:text-blue-500"
+                >
+                  Contato via WhatsApp
+                </a>
+              </li>
             </ul>
           </div>
           
@@ -1641,26 +1724,34 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Newsletter</h4>
-            <p className="text-sm text-slate-400 mb-6">Receba tendências de tecnologia e design diretamente no seu email.</p>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Seu melhor email" 
-                className="bg-surface border border-white/20 text-sm px-4 py-2 rounded-lg outline-none focus:border-accent w-full"
-              />
-              <button className="bg-primary text-white p-2 rounded-lg hover:bg-accent transition-colors">
-                <ChevronRight size={20} />
-              </button>
-            </div>
+            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Atendimento Direto</h4>
+            <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+              Fale agora mesmo com um especialista pelo WhatsApp ou monte seu pré-orçamento rápido.
+            </p>
+            <a
+              href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de falar com um especialista.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={trackConversion}
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-4 py-3 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-blue-600/20 mb-3"
+            >
+              <MessageCircle size={16} />
+              Chamar no WhatsApp
+            </a>
+            <a
+              href="#contact"
+              className="block text-center text-xs text-slate-400 hover:text-blue-400 underline underline-offset-4 transition-colors"
+            >
+              Ou preencher pré-orçamento no site
+            </a>
           </div>
         </div>
         
         <div className="border-t border-white/20 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <div>© 2026 Domus Íntegra Automação. Todos os direitos reservados.</div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-blue-600">Política de Privacidade</a>
-            <a href="#" className="hover:text-blue-600">Termos de Uso</a>
+            <span>Atendimento em 60+ cidades no RS</span>
+            <span>Ambiente 100% Seguro (SSL)</span>
           </div>
         </div>
       </div>
@@ -1722,16 +1813,12 @@ export default function App() {
         
         {/* Floating WhatsApp Button for all pages */}
         <a 
-          href="https://wa.me/5551991308627" 
+          href={getWhatsAppUrl('Olá! Vim pelo site da Domus Íntegra e gostaria de atendimento.')}
           target="_blank" 
-          rel="noreferrer"
-          onClick={() => {
-            if (typeof window !== 'undefined' && (window as any).gtag) {
-              (window as any).gtag('event', 'conversion', { 'send_to': 'AW-18068043692/4qBBCI-Z45YcEKzvwadD' });
-            }
-          }}
+          rel="noopener noreferrer"
+          onClick={trackConversion}
           className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:bg-green-600 group"
-          aria-label="Chat on WhatsApp"
+          aria-label="Conversar no WhatsApp"
         >
           <MessageCircle size={32} />
           <span className="absolute right-full mr-4 bg-surface text-white px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
